@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
+import 'models/team.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,20 +51,27 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  late List<Team> data = [];
 
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
     });
   }
 
+  Future getDataApi() async {
+    final List<Team> data = await TeamRepository().fetchTeams();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDataApi();
+  }
+
   @override
   Widget build(BuildContext context) {
+    print(data);
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
