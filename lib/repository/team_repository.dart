@@ -7,31 +7,22 @@ class TeamRepository {
     'x-apisports-key': '59e797f543c82c6b08ca0a1631cb3f21',
   };
   Future<List<Team>> fetchTeams() async {
-    print("Je suis dans la fonction");
     var url = "https://v2.nba.api-sports.io/teams";
-    var response = await http.get(Uri.parse(url));
+    var response = await http.get(Uri.parse(url), headers: headers);
     if (response.statusCode == 200) {
-      print("Je suis dans la reponse");
-      final List<Team> teams = []; // Liste que la méthode va renvoyer
-
       // Transformation du JSON (String) en Map<String, dynamic>
-      final Map<String, dynamic> json = jsonDecode(response.body);
-      print(response.body);
-      print(jsonDecode(response.body));
-      if (json.containsKey("features")) {
-        // Récupération des "features"
-        final List<dynamic> features = json['features'];
-
-        // Transformation de chaque "feature" en objet de type "Team"
-        for (Map<String, dynamic> feature in features) {
-          final Team team = Team.fromJson(feature);
+      final dynamic json = jsonDecode(response.body);
+      var jsonTeams = json['response'];
+      final List<Team> teams = []; // Liste que la méthode va renvoyer
+      if (json.toString().contains("response")) {
+        for (var element in jsonTeams) {
+          final Team team = Team.fromJson(element);
           teams.add(team);
         }
       }
       print(teams);
       return teams;
     } else {
-      print("Je n'y suis pas");
       throw Exception('Failed to load teams');
     }
   }
