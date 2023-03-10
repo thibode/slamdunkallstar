@@ -1,13 +1,14 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/team.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class TeamRepository {
   var headers = {
     'x-apisports-key': '59e797f543c82c6b08ca0a1631cb3f21',
   };
   Future<List<Team>> fetchTeams() async {
-    var url = "https://v2.nba.api-sports.io/teams";
+    var url = dotenv.get('API_URL', fallback: 'API_URL not found');
     var response = await http.get(Uri.parse(url), headers: headers);
     if (response.statusCode == 200) {
       // Transformation du JSON (String) en Map<String, dynamic>
@@ -20,7 +21,6 @@ class TeamRepository {
           teams.add(team);
         }
       }
-      print(teams);
       return teams;
     } else {
       throw Exception('Failed to load teams');

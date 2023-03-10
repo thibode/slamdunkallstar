@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'models/team.dart';
+import '../models/environment.dart';
 
-void main() {
+Future main() async {
+  const bool kReleaseMode = bool.fromEnvironment('dart.vm.product');
+  if (kReleaseMode) {
+    await dotenv.load(fileName: ".env");
+  } else {
+    await dotenv.load(fileName: ".env.local");
+  }
+
   runApp(const MyApp());
 }
 
