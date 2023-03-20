@@ -21,26 +21,31 @@ class CustomBottomAppBar extends StatelessWidget {
               }
             },
           ),
+          // Expanded(child: Row()),
+          // MaterialButton(
+          //   child: Icon(
+          //     Icons.man,
+          //     color: route?.settings.name == "/players"
+          //         ? Colors.blue
+          //         : Colors.black,
+          //   ),
+          //   onPressed: () {
+          //     if (route?.settings.name != "/players") {
+          //       Navigator.pushNamed(context, "/players");
+          //     }
+          //   },
+          // ),
           Expanded(child: Row()),
           MaterialButton(
-            child: Icon(
-              Icons.man,
-              color: route?.settings.name == "/players"
-                  ? Colors.blue
-                  : Colors.black,
-            ),
-            onPressed: () {
-              if (route?.settings.name != "/players") {
-                Navigator.pushNamed(context, "/players");
-              }
-            },
-          ),
-          Expanded(child: Row()),
-          MaterialButton(
-            child: Icon(
-              Icons.list,
-              color:
-                  route?.settings.name == "/" ? Colors.blue : Colors.black,
+            child: Row(
+              children: [
+                Icon(
+                  Icons.list,
+                  color:
+                      route?.settings.name == "/" ? Colors.blue : Colors.black,
+                ),
+                Text("Liste des équipes"),
+              ],
             ),
             onPressed: () {
               if (route?.settings.name != "/teams") {
