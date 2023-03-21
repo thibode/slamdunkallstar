@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/errors/error_404.dart';
+import 'package:slam_dunk_all_star_v2/ui/screens/game_of_the_day.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/home.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/players.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/teams.dart';
@@ -39,6 +40,7 @@ class _MainAppState extends State<MainApp> {
         "/": (context) => Home(),
         "/*": (context) => Error404(),
         "/teams": (context) => TeamScreen(),
+        "/gameOfTheDay": (context) => GameOfTheDay(),
         // "/listMatch": (context) => ListMatch(),
       },
     );

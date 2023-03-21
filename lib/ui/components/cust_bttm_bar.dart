@@ -52,6 +52,22 @@ class CustomBottomAppBar extends StatelessWidget {
                 Navigator.pushNamed(context, "/teams");
               }
             },
+          ),
+          Expanded(child: Row()),
+          MaterialButton(
+            onPressed: () {
+              if (route?.settings.name != "/gameOfTheDay") {
+                Navigator.pushNamed(context, "/gameOfTheDay");
+              }
+            },
+            child: Row(
+              children: [
+                Icon(
+                  Icons.games,
+                ),
+                Text("Match du jour")
+              ],
+            ),
           )
         ],
       )),
