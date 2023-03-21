@@ -33,7 +33,13 @@ class TeamListView extends StatelessWidget {
                                           teamId: snapshot.data![index].id
                                               .toString())));
                             },
-                            child: Text(snapshot.data![index].name.toString())),
+                            child:
+                            Column(
+                              children: [if(snapshot.data![index].nbaFranchise == true) 
+                                Text((snapshot.data![index].name).toString())],
+                            )
+                              
+                        ),
                       ],
                     )
                   ],

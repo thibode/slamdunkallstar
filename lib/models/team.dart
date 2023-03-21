@@ -2,14 +2,16 @@ class Team {
   int? id;
   String? name;
   String? city;
+  bool? nbaFranchise;
 
-  Team({this.name, this.city, this.id});
+  Team({this.name, this.city, this.id, this.nbaFranchise});
 
   factory Team.fromJson(Map<String, dynamic> json) {
     return Team(
       id: json["id"],
       name: json["name"],
       city: json["city"],
+      nbaFranchise: json["nbaFranchise"]
     );
   }
 
