@@ -13,39 +13,68 @@ class TeamListView extends StatelessWidget {
       future: TeamRepository().getTeams(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return ListView.builder(
-            itemCount: snapshot.data!.length,
-            itemBuilder: (context, index) {
-              return Container(
+          return GridView.count(
+            crossAxisCount: 2,
+            childAspectRatio: 0.75,
+            padding: const EdgeInsets.all(8.0),
+            children: List.generate(snapshot.data!.length, (index) {
+              return Card(
+                elevation: 4.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+                semanticContainer: true,
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 20,
+                    const SizedBox(height: 20),
+                    MaterialButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Players(
+                              teamId: snapshot.data![index].id.toString(),
+                            ),
+                          ),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          if (snapshot.data![index].nbaFranchise == true)
+                            Image(
+                              image: NetworkImage(
+                                  snapshot.data![index].logo.toString()),
+                              height: 150,
+                              width: 100,
+                            ),
+                          SizedBox(height: 10),
+                          Text(
+                            "[ " +
+                                snapshot.data![index].city.toString() +
+                                " | " +
+                                snapshot.data![index].conference.toString() +
+                                " | " +
+                                snapshot.data![index].division.toString() +
+                                " ]",
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: Colors.grey[600],
+                              fontWeight: FontWeight.w500,
+                              fontStyle: FontStyle.italic,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    Row(
-                      children: [
-                        MaterialButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Players(
-                                          teamId: snapshot.data![index].id
-                                              .toString())));
-                            },
-                            child:
-                            Column(
-                              children: [if(snapshot.data![index].nbaFranchise == true) 
-                                Text((snapshot.data![index].name).toString())],
-                            )
-                              
-                        ),
-                      ],
-                    )
+                    SizedBox(height: 10),
+                    Text(
+                      snapshot.data![index].name.toString(),
+                      style: TextStyle(fontSize: 16),
+                    ),
                   ],
                 ),
               );
-            },
+            }),
           );
         } else if (snapshot.hasError) {
           return Text("${snapshot.error}");

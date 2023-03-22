@@ -16,11 +16,14 @@ class TeamRepository {
       final Map<String, dynamic> result = jsonDecode(response.body);
       final List<dynamic> teamsList = result["response"];
       final List<dynamic> onlyNBA = [];
-      for (var team in teamsList){
-        if(team["nbaFranchise"] == true)
+      for (var team in teamsList) {
+        if (team["nbaFranchise"] == true) {
           onlyNBA.add(team);
+        }
       }
-      onlyNBA.sort((a, b) => (a["name"].toLowerCase().compareTo(b["name"].toLowerCase())));
+
+      onlyNBA.sort((a, b) =>
+          (a["name"].toLowerCase().compareTo(b["name"].toLowerCase())));
       return onlyNBA
           .cast<Map<String, dynamic>>()
           .map((e) => Team.fromJson(e))
