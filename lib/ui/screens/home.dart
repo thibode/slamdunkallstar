@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:slam_dunk_all_star_v2/models/team.dart';
+import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
 import '../commons/design.dart' as color;
 
@@ -13,7 +15,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
-  Widget build(BuildContext context) {
+Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(color: Colors.black.withOpacity(0.9)),
@@ -44,13 +46,31 @@ class _HomeState extends State<Home> {
             ),
           ),
           Container(
-            child: Column(
-              children: [
-                Row(
-                  //afficher les matches
-                  children: [Column(), Column()],
-                )
-              ],
+            child: FutureBuilder<List<Team>>(
+              future: TeamRepository().getTeams(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        for (Team team in snapshot.data!)
+                          Container(
+                            margin: EdgeInsets.all(10.0),
+                            child: Image(
+                              image: NetworkImage(team.logo.toString()),
+                              height: 50,
+                              width: 50,
+                            ),
+                          ),
+                      ],
+                    ),
+                  );
+                } else if (snapshot.hasError) {
+                  return Text("${snapshot.error}");
+                }
+                return const CircularProgressIndicator();
+              },
             ),
           )
         ]),
@@ -58,4 +78,6 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: CustomBottomAppBar(),
     );
   }
+
+
 }
