@@ -15,7 +15,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
-Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(color: Colors.black.withOpacity(0.9)),
@@ -47,7 +47,7 @@ Widget build(BuildContext context) {
           ),
           Container(
             child: FutureBuilder<List<Team>>(
-              future: TeamRepository().getTeams(),
+              future: TeamRepository().getAllTeams(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return SingleChildScrollView(
@@ -78,6 +78,4 @@ Widget build(BuildContext context) {
       bottomNavigationBar: CustomBottomAppBar(),
     );
   }
-
-
 }

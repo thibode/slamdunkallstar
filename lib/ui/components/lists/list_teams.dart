@@ -10,7 +10,7 @@ class TeamListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Team>>(
-      future: TeamRepository().getTeams(),
+      future: TeamRepository().getAllTeams(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return GridView.count(
@@ -29,14 +29,16 @@ class TeamListView extends StatelessWidget {
                     const SizedBox(height: 20),
                     MaterialButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Players(
-                              teamId: snapshot.data![index].id.toString(),
-                            ),
-                          ),
-                        );
+                        TeamRepository().getTeamById(
+                            int.parse(snapshot.data![index].id.toString()));
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => Players(
+                        //       teamId: snapshot.data![index].id.toString(),
+                        //     ),
+                        //   ),
+                        // );
                       },
                       child: Column(
                         children: [

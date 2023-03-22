@@ -5,7 +5,7 @@ import 'package:slam_dunk_all_star_v2/ui/screens/errors/error_404.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/game_of_the_day.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/home.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/players.dart';
-import 'package:slam_dunk_all_star_v2/ui/screens/teams.dart';
+import 'package:slam_dunk_all_star_v2/ui/screens/all_teams.dart';
 import 'models/team.dart';
 import '../models/environment.dart';
 
@@ -37,10 +37,10 @@ class _MainAppState extends State<MainApp> {
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       routes: {
-        "/": (context) => Home(),
-        "/*": (context) => Error404(),
-        "/teams": (context) => TeamScreen(),
-        "/gameOfTheDay": (context) => GameOfTheDay(),
+        "/": (context) => const Home(),
+        "/*": (context) => const Error404(),
+        "/teams": (context) => const AllTeamScreen(),
+        "/gameOfTheDay": (context) => const GameOfTheDay(),
         // "/listMatch": (context) => ListMatch(),
       },
     );

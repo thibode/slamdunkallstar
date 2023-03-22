@@ -5,14 +5,14 @@ import 'package:slam_dunk_all_star_v2/models/team.dart';
 import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/lists/list_teams.dart';
 
-class TeamScreen extends StatefulWidget {
-  const TeamScreen({super.key});
+class AllTeamScreen extends StatefulWidget {
+  const AllTeamScreen({super.key});
 
   @override
-  State<TeamScreen> createState() => _TeamScreenState();
+  State<AllTeamScreen> createState() => _AllTeamScreenState();
 }
 
-class _TeamScreenState extends State<TeamScreen> {
+class _AllTeamScreenState extends State<AllTeamScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
