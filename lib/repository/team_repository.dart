@@ -52,7 +52,7 @@ class TeamRepository {
       final List team = [];
       for (var teamProps in selectedTeam) {
         for (var data in jsonData.values) {
-          if (teamProps["id"] == 1 && data["idTeam"] == 1) {
+          if (teamProps["id"] == 1 && data == 1) {
             team.add({data, teamProps});
           }
         }

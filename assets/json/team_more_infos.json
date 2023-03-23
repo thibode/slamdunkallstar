@@ -1,5 +1,11 @@
-{
+[{
     "idTeam": 1,
     "description": "lorem ipsum"
     ,"createdAt": "1968"
+},
+{
+    "idTeam": 2,
+    "description": "lorem ipsum lorem",
+    "createdAt": "1980"
 }
+]

@@ -10,7 +10,6 @@ class CustomBottomAppBar extends StatelessWidget {
     return BottomAppBar(
       child: (Row(
         children: [
-          const Padding(padding: EdgeInsets.all(30)),
           MaterialButton(
             child: Icon(
               Icons.home,
@@ -22,20 +21,6 @@ class CustomBottomAppBar extends StatelessWidget {
               }
             },
           ),
-          // Expanded(child: Row()),
-          // MaterialButton(
-          //   child: Icon(
-          //     Icons.man,
-          //     color: route?.settings.name == "/players"
-          //         ? Colors.blue
-          //         : Colors.black,
-          //   ),
-          //   onPressed: () {
-          //     if (route?.settings.name != "/players") {
-          //       Navigator.pushNamed(context, "/players");
-          //     }
-          //   },
-          // ),
           Expanded(child: Row()),
           MaterialButton(
             child: Row(
@@ -45,7 +30,6 @@ class CustomBottomAppBar extends StatelessWidget {
                   color:
                       route?.settings.name == "/" ? Colors.blue : Colors.black,
                 ),
-                const Text("Liste des équipes"),
               ],
             ),
             onPressed: () {
@@ -66,7 +50,6 @@ class CustomBottomAppBar extends StatelessWidget {
                 Icon(
                   Icons.games,
                 ),
-                Text("Match du jour")
               ],
             ),
           )
