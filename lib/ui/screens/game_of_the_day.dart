@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:slam_dunk_all_star_v2/models/game.dart';
 import 'package:slam_dunk_all_star_v2/repository/game_repository.dart';
+import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
 
 class GameOfTheDay extends StatefulWidget {
   const GameOfTheDay({super.key});
@@ -81,6 +82,7 @@ class _GameOfTheDayState extends State<GameOfTheDay> {
             }
             return const Center(child: CircularProgressIndicator());
           }),
+      bottomNavigationBar: CustomBottomAppBar(),
     );
   }
 }
