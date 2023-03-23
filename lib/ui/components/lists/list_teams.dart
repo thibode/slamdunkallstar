@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:slam_dunk_all_star_v2/models/players.dart';
 import 'package:slam_dunk_all_star_v2/models/team.dart';
 import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/players.dart';
@@ -31,14 +30,14 @@ class TeamListView extends StatelessWidget {
                       onPressed: () {
                         TeamRepository().getTeamById(
                             int.parse(snapshot.data![index].id.toString()));
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => Players(
-                        //       teamId: snapshot.data![index].id.toString(),
-                        //     ),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Players(
+                              teamId: snapshot.data![index].id.toString(),
+                            ),
+                          ),
+                        );
                       },
                       child: Column(
                         children: [
@@ -49,15 +48,9 @@ class TeamListView extends StatelessWidget {
                               height: 150,
                               width: 100,
                             ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Text(
-                            "[ " +
-                                snapshot.data![index].city.toString() +
-                                " | " +
-                                snapshot.data![index].conference.toString() +
-                                " | " +
-                                snapshot.data![index].division.toString() +
-                                " ]",
+                            "[ ${snapshot.data![index].city} | ${snapshot.data![index].conference} | ${snapshot.data![index].division} ]",
                             style: TextStyle(
                               fontSize: 11,
                               color: Colors.grey[600],
@@ -68,10 +61,10 @@ class TeamListView extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
                       snapshot.data![index].name.toString(),
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ],
                 ),

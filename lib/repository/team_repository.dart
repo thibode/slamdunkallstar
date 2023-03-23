@@ -33,7 +33,7 @@ class TeamRepository {
     }
   }
 
-  Future<List<Team>> getTeamById(int teamId) async {
+  Future<List<Team>> getTeamById(int? teamId) async {
     var queryParameters = {
       "team": teamId,
     };
@@ -45,6 +45,7 @@ class TeamRepository {
     final String jsonFileData =
         await rootBundle.loadString('assets/json/team_more_infos.json');
     final Map<String, dynamic> jsonData = jsonDecode(jsonFileData);
+
     if (response.statusCode == 200) {
       final Map<String, dynamic> result = jsonDecode(response.body);
       final List<dynamic> selectedTeam = result["response"];

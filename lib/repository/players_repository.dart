@@ -11,7 +11,7 @@ class PlayerRepository {
   };
 
   Future<List<Player>> getPlayersByTeamId(String teamId) async {
-    var dateNow = new DateTime.now();
+    var dateNow = DateTime.now();
     var seasonYear = dateNow.year;
 
     //Condition pour les saisons de la NBA,
@@ -22,6 +22,7 @@ class PlayerRepository {
         "season": seasonYear.toString(),
         "team": teamId,
       };
+
       final uri = Uri.https(dotenv.get("API_URL"), '/players', queryParameters);
       var response = await http.get(uri, headers: headers);
       final Map<String, dynamic> result = jsonDecode(response.body);
@@ -43,7 +44,9 @@ class PlayerRepository {
       var response = await http.get(uri, headers: headers);
       final Map<String, dynamic> result = jsonDecode(response.body);
       final List<dynamic> playersList = result["response"];
-      
+      print(playersList .cast<Map<String, dynamic>>()
+          .map((e) => Player.fromJson(e))
+          .toList());
       return playersList
           .cast<Map<String, dynamic>>()
           .map((e) => Player.fromJson(e))

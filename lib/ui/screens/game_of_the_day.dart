@@ -25,8 +25,7 @@ class _GameOfTheDayState extends State<GameOfTheDay> {
       appBar: AppBar(
         title: Center(
             child: Text(
-          "Match du Jour \n" +
-              DateFormat("dd/MM/yyyy").format(new DateTime.now()),
+          "Match du Jour \n${DateFormat("dd/MM/yyyy").format(DateTime.now())}",
           textAlign: TextAlign.center,
         )),
       ),

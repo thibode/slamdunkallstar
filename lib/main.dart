@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/errors/error_404.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/game_of_the_day.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/home.dart';
-import 'package:slam_dunk_all_star_v2/ui/screens/players.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/all_teams.dart';
-import 'models/team.dart';
-import '../models/environment.dart';
 
 Future main() async {
   const bool kReleaseMode = bool.fromEnvironment('dart.vm.product');
@@ -16,7 +12,7 @@ Future main() async {
   } else {
     await dotenv.load(fileName: ".env.local");
   }
-  runApp(MainApp(title: "Slam Dunk All Stars"));
+  runApp(const MainApp(title: "Slam Dunk All Stars"));
 }
 
 class MainApp extends StatefulWidget {

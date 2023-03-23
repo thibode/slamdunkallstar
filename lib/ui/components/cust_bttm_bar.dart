@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../commons/design.dart' as color;
 
 class CustomBottomAppBar extends StatelessWidget {
+  const CustomBottomAppBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     var route = ModalRoute.of(context);
@@ -9,7 +10,7 @@ class CustomBottomAppBar extends StatelessWidget {
     return BottomAppBar(
       child: (Row(
         children: [
-          Padding(padding: EdgeInsets.all(30)),
+          const Padding(padding: EdgeInsets.all(30)),
           MaterialButton(
             child: Icon(
               Icons.home,
@@ -44,7 +45,7 @@ class CustomBottomAppBar extends StatelessWidget {
                   color:
                       route?.settings.name == "/" ? Colors.blue : Colors.black,
                 ),
-                Text("Liste des équipes"),
+                const Text("Liste des équipes"),
               ],
             ),
             onPressed: () {
@@ -61,7 +62,7 @@ class CustomBottomAppBar extends StatelessWidget {
               }
             },
             child: Row(
-              children: [
+              children: const [
                 Icon(
                   Icons.games,
                 ),

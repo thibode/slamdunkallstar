@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class Error404 extends StatelessWidget {
   const Error404({super.key});
@@ -11,7 +9,7 @@ class Error404 extends StatelessWidget {
       body: Center(
         child: Column(children: [
           Row(
-            children: [Text("Ce que vous recherchez n'existe pas")],
+            children: const [Text("Ce que vous recherchez n'existe pas")],
           )
         ]),
       ),

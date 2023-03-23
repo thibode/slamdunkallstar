@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:slam_dunk_all_star_v2/models/players.dart';
 import 'package:slam_dunk_all_star_v2/repository/players_repository.dart';
 import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
-import '../commons/design.dart' as color;
 
 class Players extends StatefulWidget {
-  // const Players({super.key});
   final String teamId;
-  Players({required this.teamId});
+  const Players({Key? key, required this.teamId}) : super(key: key);
+
   @override
   State<Players> createState() => _PlayersState();
 }
@@ -28,45 +25,55 @@ class _PlayersState extends State<Players> {
   Widget build(BuildContext context) {
     final teamRepository = TeamRepository();
     return Scaffold(
-        body: FutureBuilder(
-            future: _player,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return ListView.builder(
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      child: Column(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color.fromARGB(255, 60, 83, 131), Color.fromARGB(255, 197, 115, 115)],
+          ),
+        ),
+        child: FutureBuilder(
+          future: _player,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) {
+                  final player = snapshot.data![index];
+                  return Card(
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        backgroundImage: AssetImage(player.lastname.toString()),
+                        radius: 25,
+                      ),
+                      title: Text(player.firstname.toString() + ' ' + player.lastname.toString()),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              MaterialButton(
-                                  onPressed: () {
-                                    // Navigator.push(
-                                    //     context,
-                                    //     MaterialPageRoute(
-                                    //         builder: (context) => Players(
-                                    //             teamId: snapshot.data![index].id
-                                    //                 .toString())));
-                                  },
-                                  child: Text(snapshot.data![index].firstname
-                                      .toString())),
-                            ],
-                          )
+                          Text('Début NBA : ' + player.startNBA.toString()),
+                          Text('Date de naissance : ' + player.birth.toString()),
                         ],
                       ),
-                    );
-                  },
-                );
-              } else if (snapshot.hasError) {
-                return Text("${snapshot.error}");
-              } else {
-                return const CircularProgressIndicator();
-              }
-            }),
-        bottomNavigationBar: CustomBottomAppBar());
+                    ),
+                    color: Colors.white,
+                  );
+                },
+              );
+            } else if (snapshot.hasError) {
+              return Text("${snapshot.error}");
+            } else {
+              return const CircularProgressIndicator();
+            }
+          },
+        ),
+      ),
+      bottomNavigationBar: const CustomBottomAppBar(),
+    );
   }
 }

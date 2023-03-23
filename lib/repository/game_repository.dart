@@ -11,7 +11,7 @@ class GameRepository {
       "HttpHeaders.contentTypeHeader": 'application/json',
     };
 
-    DateTime dateNow = new DateTime.now();
+    DateTime dateNow = DateTime.now();
     String fullYear = DateFormat("yyyy-MM-dd").format(dateNow);
     int year = int.parse(DateFormat("yyyy").format(dateNow));
     int month = int.parse(DateFormat("MM").format(dateNow));
