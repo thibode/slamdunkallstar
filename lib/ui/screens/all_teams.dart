@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/lists/list_teams.dart';
 
 class AllTeamScreen extends StatefulWidget {
@@ -16,6 +17,7 @@ class _AllTeamScreenState extends State<AllTeamScreen> {
         title: const Text("Teams screen"),
       ),
       body: const TeamListView(),
+      bottomNavigationBar: CustomBottomAppBar(),
     );
   }
 }

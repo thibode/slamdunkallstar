@@ -27,8 +27,9 @@ class CustomBottomAppBar extends StatelessWidget {
               children: [
                 Icon(
                   Icons.list,
-                  color:
-                      route?.settings.name == "/" ? Colors.blue : Colors.black,
+                  color: route?.settings.name == "/teams"
+                      ? Colors.blue
+                      : Colors.black,
                 ),
               ],
             ),
