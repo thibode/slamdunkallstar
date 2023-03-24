@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 
 class AppColors {
+  static Color blueLogo = const Color.fromRGBO(29, 53, 87, 1);
   static Color black = const Color.fromARGB(255, 22, 22, 22);
   static Color brown = const Color.fromARGB(255, 79, 37, 12);
   static Color red = const Color.fromARGB(255, 159, 34, 34);

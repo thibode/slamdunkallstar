@@ -47,9 +47,12 @@ class CustomBottomAppBar extends StatelessWidget {
               }
             },
             child: Row(
-              children: const [
+              children: [
                 Icon(
                   Icons.games,
+                  color: route?.settings.name == "/gameOfTheDay"
+                      ? Colors.blue
+                      : Colors.black,
                 ),
               ],
             ),
