@@ -14,7 +14,9 @@ class _AllTeamScreenState extends State<AllTeamScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Teams screen"),
+        title: const Text("NBA Teams List"),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
       ),
       body: const TeamListView(),
       bottomNavigationBar: CustomBottomAppBar(),

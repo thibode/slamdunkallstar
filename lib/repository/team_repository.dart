@@ -57,10 +57,6 @@ class TeamRepository {
           }
         }
       }
-      print(team
-          .cast<Map<String, dynamic>>()
-          .map((e) => Team.fromJson(e))
-          .toList());
       return team
           .cast<Map<String, dynamic>>()
           .map((e) => Team.fromJson(e))

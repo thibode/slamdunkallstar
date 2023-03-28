@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:slam_dunk_all_star_v2/models/players.dart';
+import 'package:slam_dunk_all_star_v2/models/team.dart';
 import 'package:slam_dunk_all_star_v2/repository/players_repository.dart';
 import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
@@ -24,6 +25,7 @@ class _PlayersState extends State<Players> {
   @override
   Widget build(BuildContext context) {
     final teamRepository = TeamRepository();
+    
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -40,7 +42,7 @@ class _PlayersState extends State<Players> {
               return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  final player = snapshot.data![index];
+                  final player = snapshot.data![index];   
                   return Card(
                     elevation: 4,
                     shape: RoundedRectangleBorder(
