@@ -5,4 +5,5 @@ const bool kReleaseMode = bool.fromEnvironment('dart.vm.product');
 class Environment {
   static String get fileName => kReleaseMode ? ".env" : ".env.local";
   static String get apiUrl => dotenv.env['API_URL'] ?? 'MY_FALLBACK';
+  static String get apiKey => dotenv.env['API_KEY'] ?? 'MY_FALLBACK';
 }

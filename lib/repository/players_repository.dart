@@ -44,9 +44,7 @@ class PlayerRepository {
       var response = await http.get(uri, headers: headers);
       final Map<String, dynamic> result = jsonDecode(response.body);
       final List<dynamic> playersList = result["response"];
-      print(playersList .cast<Map<String, dynamic>>()
-          .map((e) => Player.fromJson(e))
-          .toList());
+
       return playersList
           .cast<Map<String, dynamic>>()
           .map((e) => Player.fromJson(e))
