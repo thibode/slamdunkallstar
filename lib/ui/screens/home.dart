@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:slam_dunk_all_star_v2/models/team.dart';
 import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
-import 'package:slam_dunk_all_star_v2/ui/commons/design.dart' as color;
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/custom_decoration.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/lists/list_todays_game.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/players.dart';
-import 'package:stack_blur/stack_blur.dart';
-import 'package:slam_dunk_all_star_v2/ui/screens/authentication/sign_out.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -24,12 +21,14 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         leading: Row(
+          // ignore: prefer_const_literals_to_create_immutables
           children: [
+            // ignore: prefer_const_constructors
             Icon(
               Icons.sports_basketball,
-              color: Color.fromARGB(255, 0, 0, 0),
+              color: Colors.black,
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
           ],
         ),
         title: const Text("Matchs of the day !"),

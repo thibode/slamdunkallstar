@@ -44,20 +44,18 @@ class _PlayersState extends State<Players> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    // ignore: sort_child_properties_last
                     child: ListTile(
                       leading: CircleAvatar(
                         backgroundImage: AssetImage(player.lastname.toString()),
                         radius: 25,
                       ),
-                      title: Text(player.firstname.toString() +
-                          ' ' +
-                          player.lastname.toString()),
+                      title: Text('${player.firstname} ${player.lastname}'),
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Début NBA : ' + player.startNBA.toString()),
-                          Text(
-                              'Date de naissance : ' + player.birth.toString()),
+                          Text('Début NBA : ${player.startNBA}'),
+                          Text('Date de naissance : ${player.birth}'),
                         ],
                       ),
                     ),

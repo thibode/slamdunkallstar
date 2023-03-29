@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:slam_dunk_all_star_v2/models/game.dart';
 import 'package:slam_dunk_all_star_v2/repository/game_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/custom_decoration.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/lists/list_todays_game.dart';
-import 'package:slam_dunk_all_star_v2/ui/screens/game_statistics.dart';
 
 class GameOfTheDay extends StatefulWidget {
   const GameOfTheDay({super.key});
@@ -21,6 +19,7 @@ class _GameOfTheDayState extends State<GameOfTheDay> {
   void initState() {
     super.initState();
     _game = GameRepository().getMatchOfTheDay();
+    _game = GameRepository().getMatchOfTheDay();
   }
 
   @override
@@ -31,11 +30,11 @@ class _GameOfTheDayState extends State<GameOfTheDay> {
         foregroundColor: Colors.black,
         leading: Row(
           children: [
-            Icon(
+            const Icon(
               Icons.sports_basketball,
-              color: Color.fromARGB(255, 0, 0, 0),
+              color: const Color.fromARGB(255, 0, 0, 0),
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
           ],
         ),
         title: const Text("Matchs of the day !"),
