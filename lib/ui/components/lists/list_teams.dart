@@ -10,15 +10,22 @@ class TeamListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color.fromARGB(255, 60, 83, 131),
-              Color.fromARGB(255, 197, 115, 115)
-            ],
+        decoration: BoxDecoration(
+          image: new DecorationImage(
+            image: new ExactAssetImage('assets/images/720003.jpg'),
+            fit: BoxFit.cover,
+            colorFilter: new ColorFilter.mode(
+                Colors.black.withOpacity(0.8), BlendMode.dstATop),
           ),
+          color: Colors.white.withOpacity(0.2),
+          backgroundBlendMode: BlendMode.dstATop,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.5),
+              blurRadius: 20,
+              offset: Offset(0, 10),
+            ),
+          ],
         ),
         child: FutureBuilder<List<Team>>(
           future: TeamRepository().getAllTeams(),

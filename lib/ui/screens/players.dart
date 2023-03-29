@@ -25,15 +25,25 @@ class _PlayersState extends State<Players> {
   @override
   Widget build(BuildContext context) {
     final teamRepository = TeamRepository();
-    
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color.fromARGB(255, 60, 83, 131), Color.fromARGB(255, 197, 115, 115)],
+          image: new DecorationImage(
+            image: new ExactAssetImage('assets/images/720003.jpg'),
+            fit: BoxFit.cover,
+            colorFilter: new ColorFilter.mode(
+                Colors.black.withOpacity(0.8), BlendMode.dstATop),
           ),
+          color: Colors.white.withOpacity(0.2),
+          backgroundBlendMode: BlendMode.dstATop,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.5),
+              blurRadius: 20,
+              offset: Offset(0, 10),
+            ),
+          ],
         ),
         child: FutureBuilder(
           future: _player,
@@ -42,7 +52,7 @@ class _PlayersState extends State<Players> {
               return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  final player = snapshot.data![index];   
+                  final player = snapshot.data![index];
                   return Card(
                     elevation: 4,
                     shape: RoundedRectangleBorder(
@@ -54,12 +64,15 @@ class _PlayersState extends State<Players> {
                         backgroundImage: AssetImage(player.lastname.toString()),
                         radius: 25,
                       ),
-                      title: Text(player.firstname.toString() + ' ' + player.lastname.toString()),
+                      title: Text(player.firstname.toString() +
+                          ' ' +
+                          player.lastname.toString()),
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('Début NBA : ' + player.startNBA.toString()),
-                          Text('Date de naissance : ' + player.birth.toString()),
+                          Text(
+                              'Date de naissance : ' + player.birth.toString()),
                         ],
                       ),
                     ),

@@ -64,7 +64,7 @@ class _TodaysGameViewState extends State<TodaysGameView> {
                                                 : "Vainqueur: ${toDaysGame[index].homeName} \n ${"$visitorPoints - $homePoints"}",
                                     textAlign: TextAlign.center,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   )
                                 ],

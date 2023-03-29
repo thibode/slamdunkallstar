@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:slam_dunk_all_star_v2/ui/screens/authentication/login_register_page.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/errors/error_404.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/game_of_the_day.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/home.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/all_teams.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:slam_dunk_all_star_v2/ui/screens/authentication/widget_tree.dart';
+import 'package:slam_dunk_all_star_v2/ui/screens/authentication/sign_out.dart';
 
-Future main() async {
+Future<void> main() async {
   const bool kReleaseMode = bool.fromEnvironment('dart.vm.product');
   if (kReleaseMode) {
     await dotenv.load(fileName: ".env");
   } else {
     await dotenv.load(fileName: ".env.local");
   }
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MainApp(title: "Slam Dunk All Stars"));
 }
 
@@ -28,16 +34,16 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // theme: ThemeData(fontFamily: "PermanentMarker"),
       title: "Slam Dunk All Stars",
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       routes: {
-        "/": (context) => const Home(),
+        "/": (context) => const WidgetTree(),
         "/*": (context) => const Error404(),
         "/teams": (context) => const AllTeamScreen(),
         "/gameOfTheDay": (context) => const GameOfTheDay(),
-        // "/listMatch": (context) => ListMatch(),
+        "/signOut": (context) => SignOutPage(),
+        "/signIn": (context) => const LoginPage(),
       },
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slam_dunk_all_star_v2/ui/screens/authentication/sign_out.dart';
 
 class CustomBottomAppBar extends StatelessWidget {
   const CustomBottomAppBar({super.key});
@@ -51,6 +52,25 @@ class CustomBottomAppBar extends StatelessWidget {
                 Icon(
                   Icons.games,
                   color: route?.settings.name == "/gameOfTheDay"
+                      ? Colors.blue
+                      : Colors.black,
+                ),
+              ],
+            ),
+          ),
+          Expanded(child: Row()),
+          MaterialButton(
+            onPressed: () {
+              if (route?.settings.name != "/signOut") {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SignOutPage()));
+              }
+            },
+            child: Row(
+              children: [
+                Icon(
+                  Icons.stop,
+                  color: route?.settings.name == "/signOut"
                       ? Colors.blue
                       : Colors.black,
                 ),

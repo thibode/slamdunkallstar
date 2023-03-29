@@ -5,6 +5,8 @@ import 'package:slam_dunk_all_star_v2/ui/commons/design.dart' as color;
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/lists/list_todays_game.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/players.dart';
+import 'package:stack_blur/stack_blur.dart';
+import 'package:slam_dunk_all_star_v2/ui/screens/authentication/sign_out.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -17,28 +19,41 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        leading: Row(
+          children: [
+            Icon(
+              Icons.sports_basketball,
+              color: Color.fromARGB(255, 0, 0, 0),
+            ),
+            SizedBox(width: 10),
+          ],
+        ),
+        title: const Text("Matchs of the day !"),
+        actions: [SignOutPage()],
+      ),
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              color.AppColors.black.withOpacity(1),
-              color.AppColors.darkGrey.withOpacity(.3)
-            ],
+          image: new DecorationImage(
+            image: new ExactAssetImage('assets/images/720003.jpg'),
+            fit: BoxFit.cover,
+            colorFilter: new ColorFilter.mode(
+                Colors.black.withOpacity(0.5), BlendMode.dstATop),
           ),
+          color: Colors.white.withOpacity(0.2),
+          backgroundBlendMode: BlendMode.dstATop,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.5),
+              blurRadius: 20,
+              offset: Offset(0, 10),
+            ),
+          ],
         ),
         child: Column(
           children: [
-            const SizedBox(height: 40),
-            Container(
-              margin: const EdgeInsets.only(top: 20),
-              child: const Image(
-                image: AssetImage("assets/images/logo.png"),
-                fit: BoxFit.contain,
-                height: 250,
-              ),
-            ),
             const SizedBox(height: 20),
             SizedBox(
               height: 70,
@@ -84,33 +99,9 @@ class _HomeState extends State<Home> {
                 },
               ),
             ),
-            Container(
-              height: 50,
-              decoration: BoxDecoration(color: color.AppColors.blueLogo),
-              child: Container(
-                margin: const EdgeInsets.only(left: 30),
-                child: Center(
-                  child: Row(
-                    children: const [
-                      Icon(Icons.sports_basketball,
-                          color: Color.fromARGB(255, 255, 0, 0)),
-                      SizedBox(width: 10),
-                      Text("Matches du jour",
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white)),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Center(
+            const Center(
               child: SizedBox(
-                height: 230,
+                height: 500,
                 child: TodaysGameView(),
               ),
             )

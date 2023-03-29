@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "640522775607",
+    "project_id": "slamdunk-b86be",
+    "storage_bucket": "slamdunk-b86be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640522775607:android:e18c3984c3ac0a481323b2",
+        "android_client_info": {
+          "package_name": "com.example.slam_dunk_all_star_v2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "640522775607-u6l03puoe4rb0bocp6ikcdcaciht3gru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg3A0hCJjGvJ2HcXDAdTt-jQOtVRQHJ7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "640522775607-u6l03puoe4rb0bocp6ikcdcaciht3gru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
