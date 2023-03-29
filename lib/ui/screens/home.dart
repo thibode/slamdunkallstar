@@ -3,6 +3,7 @@ import 'package:slam_dunk_all_star_v2/models/team.dart';
 import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/commons/design.dart' as color;
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
+import 'package:slam_dunk_all_star_v2/ui/components/custom_decoration.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/lists/list_todays_game.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/players.dart';
 import 'package:stack_blur/stack_blur.dart';
@@ -34,23 +35,7 @@ class _HomeState extends State<Home> {
         title: const Text("Matchs of the day !"),
       ),
       body: Container(
-        decoration: BoxDecoration(
-          image: new DecorationImage(
-            image: new ExactAssetImage('assets/images/720003.jpg'),
-            fit: BoxFit.cover,
-            colorFilter: new ColorFilter.mode(
-                Colors.black.withOpacity(0.5), BlendMode.dstATop),
-          ),
-          color: Colors.white.withOpacity(0.2),
-          backgroundBlendMode: BlendMode.dstATop,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              blurRadius: 20,
-              offset: Offset(0, 10),
-            ),
-          ],
-        ),
+        decoration: customDecoration().customBackground(),
         child: Column(
           children: [
             const SizedBox(height: 20),

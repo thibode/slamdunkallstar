@@ -4,6 +4,7 @@ import 'package:slam_dunk_all_star_v2/models/team.dart';
 import 'package:slam_dunk_all_star_v2/repository/players_repository.dart';
 import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
+import 'package:slam_dunk_all_star_v2/ui/components/custom_decoration.dart';
 
 class Players extends StatefulWidget {
   final String teamId;
@@ -28,23 +29,7 @@ class _PlayersState extends State<Players> {
 
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          image: new DecorationImage(
-            image: new ExactAssetImage('assets/images/720003.jpg'),
-            fit: BoxFit.cover,
-            colorFilter: new ColorFilter.mode(
-                Colors.black.withOpacity(0.8), BlendMode.dstATop),
-          ),
-          color: Colors.white.withOpacity(0.2),
-          backgroundBlendMode: BlendMode.dstATop,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              blurRadius: 20,
-              offset: Offset(0, 10),
-            ),
-          ],
-        ),
+        decoration: customDecoration().customBackground(),
         child: FutureBuilder(
           future: _player,
           builder: (context, snapshot) {

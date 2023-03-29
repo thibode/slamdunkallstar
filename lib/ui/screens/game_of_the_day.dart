@@ -3,6 +3,9 @@ import 'package:intl/intl.dart';
 import 'package:slam_dunk_all_star_v2/models/game.dart';
 import 'package:slam_dunk_all_star_v2/repository/game_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
+import 'package:slam_dunk_all_star_v2/ui/components/custom_decoration.dart';
+import 'package:slam_dunk_all_star_v2/ui/components/lists/list_todays_game.dart';
+import 'package:slam_dunk_all_star_v2/ui/screens/game_statistics.dart';
 
 class GameOfTheDay extends StatefulWidget {
   const GameOfTheDay({super.key});
@@ -17,71 +20,29 @@ class _GameOfTheDayState extends State<GameOfTheDay> {
   @override
   void initState() {
     super.initState();
-    _game = GameRepository().getDayOfTheDay();
+    _game = GameRepository().getMatchOfTheDay();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-            child: Text(
-          "Match du Jour \n${DateFormat("dd/MM/yyyy").format(DateTime.now())}",
-          textAlign: TextAlign.center,
-        )),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        leading: Row(
+          children: [
+            Icon(
+              Icons.sports_basketball,
+              color: Color.fromARGB(255, 0, 0, 0),
+            ),
+            SizedBox(width: 10),
+          ],
+        ),
+        title: const Text("Matchs of the day !"),
       ),
-      body: FutureBuilder<List<Game>>(
-          future: _game,
-          builder: (context, snapshot) {
-            List toDaysGame = snapshot.data ?? [];
-            if (snapshot.hasData) {
-              return ListView.builder(
-                  itemCount: toDaysGame.length,
-                  itemBuilder: (context, index) {
-                    String visitorPoints =
-                        toDaysGame[index].visitorPoints == null
-                            ? "0"
-                            : toDaysGame[index].visitorPoints.toString();
-                    String homePoints = toDaysGame[index].homePoints == null
-                        ? "0"
-                        : toDaysGame[index].homePoints.toString();
-                    int intVisitorPoints = int.parse(visitorPoints);
-                    int intHomePoints = int.parse(homePoints);
-                    return Container(
-                      child: Column(children: [
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          children: [
-                            MaterialButton(
-                              onPressed: () {},
-                              child: Column(
-                                children: [
-                                  Text(
-                                      "${toDaysGame[index].visitorName} - ${toDaysGame[index].homeName}"),
-                                  Text(intVisitorPoints > intHomePoints
-                                      ? "Vainqueur: ${toDaysGame[index].visitorName} \n ${"$visitorPoints - $homePoints"}"
-                                      : (intVisitorPoints == intHomePoints) &&
-                                              (intVisitorPoints != 0)
-                                          ? "Egalité"
-                                          : intVisitorPoints == 0 &&
-                                                  intHomePoints == 0
-                                              ? "Le match n'a pas encore eu lieu"
-                                              : "Vainqueur: ${toDaysGame[index].homeName} \n ${"$visitorPoints - $homePoints"}"),
-                                ],
-                              ),
-                            )
-                          ],
-                        )
-                      ]),
-                    );
-                  });
-            } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
-            }
-            return const Center(child: CircularProgressIndicator());
-          }),
+      body: Container(
+          decoration: customDecoration().customBackground(),
+          child: const TodaysGameView()),
       bottomNavigationBar: CustomBottomAppBar(),
     );
   }

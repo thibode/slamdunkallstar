@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:slam_dunk_all_star_v2/ui/screens/game_statistics.dart';
 import 'package:slam_dunk_all_star_v2/models/game.dart';
 import 'package:slam_dunk_all_star_v2/repository/game_repository.dart';
 
@@ -17,7 +18,7 @@ class _TodaysGameViewState extends State<TodaysGameView> {
   @override
   void initState() {
     super.initState();
-    _game = GameRepository().getDayOfTheDay();
+    _game = GameRepository().getMatchOfTheDay();
   }
 
   @override
@@ -39,41 +40,43 @@ class _TodaysGameViewState extends State<TodaysGameView> {
                   int intVisitorPoints = int.parse(visitorPoints);
                   int intHomePoints = int.parse(homePoints);
                   return Container(
-                    margin: EdgeInsets.only(left: 50, right: 50),
-                    child: Center(
-                      child: Column(children: [
-                        Row(
-                          children: [
-                            MaterialButton(
-                              onPressed: () {},
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "${toDaysGame[index].visitorName} - ${toDaysGame[index].homeName}",
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  Text(
-                                    intVisitorPoints > intHomePoints
-                                        ? "Vainqueur: ${toDaysGame[index].visitorName} \n ${"$visitorPoints - $homePoints"}"
-                                        : (intVisitorPoints == intHomePoints) &&
-                                                (intVisitorPoints != 0)
-                                            ? "Egalité"
-                                            : intVisitorPoints == 0 &&
-                                                    intHomePoints == 0
-                                                ? "Le match n'a pas encore eu lieu"
-                                                : "Vainqueur: ${toDaysGame[index].homeName} \n ${"$visitorPoints - $homePoints"}",
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  const SizedBox(
-                                    height: 5,
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        )
-                      ]),
-                    ),
+                    child: Column(children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          MaterialButton(
+                            onPressed: () {
+                              GameRepository().getGameStats(
+                                  snapshot.data![index].id.toString());
+
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => GameStatisticsView(
+                                          id: snapshot.data![index].id
+                                              .toString())));
+                            },
+                            child: Column(
+                              children: [
+                                Text(
+                                    "${toDaysGame[index].visitorName} - ${toDaysGame[index].homeName}"),
+                                Text(intVisitorPoints > intHomePoints
+                                    ? "Vainqueur: ${toDaysGame[index].visitorName} \n ${"$visitorPoints - $homePoints"}"
+                                    : (intVisitorPoints == intHomePoints) &&
+                                            (intVisitorPoints != 0)
+                                        ? "Egalité"
+                                        : intVisitorPoints == 0 &&
+                                                intHomePoints == 0
+                                            ? "Le match n'a pas encore eu lieu"
+                                            : "Vainqueur: ${toDaysGame[index].homeName} \n ${"$visitorPoints - $homePoints"}"),
+                              ],
+                            ),
+                          )
+                        ],
+                      )
+                    ]),
                   );
                 });
           } else if (snapshot.hasError) {
