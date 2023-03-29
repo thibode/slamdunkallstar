@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:slam_dunk_all_star_v2/models/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:slam_dunk_all_star_v2/ui/screens/authentication/login_register_page.dart';
 
 class SignOutPage extends StatelessWidget {
   SignOutPage({Key? key}) : super(key: key);
@@ -21,13 +22,14 @@ class SignOutPage extends StatelessWidget {
 
   Widget _signOutButton(context) {
     return ElevatedButton(
-        onPressed: signOut,
-        child: MaterialButton(onPressed: () {
-          Navigator.popUntil(context, ModalRoute.withName("/signIn"));
-        }));
+      onPressed: () {
+        signOut();
+        Navigator.popUntil(context, ModalRoute.withName("/"));
+      },
+      child: Text('Se déconnecter'),
+    );
   }
 
-// Navigator.popUntil(context, ModalRoute.withName("/signOut"));
   @override
   Widget build(BuildContext context) {
     return Scaffold(

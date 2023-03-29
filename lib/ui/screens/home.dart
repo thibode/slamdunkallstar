@@ -32,7 +32,6 @@ class _HomeState extends State<Home> {
           ],
         ),
         title: const Text("Matchs of the day !"),
-        actions: [SignOutPage()],
       ),
       body: Container(
         decoration: BoxDecoration(

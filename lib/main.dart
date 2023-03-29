@@ -43,7 +43,6 @@ class _MainAppState extends State<MainApp> {
         "/teams": (context) => const AllTeamScreen(),
         "/gameOfTheDay": (context) => const GameOfTheDay(),
         "/signOut": (context) => SignOutPage(),
-        "/signIn": (context) => const LoginPage(),
       },
     );
   }
