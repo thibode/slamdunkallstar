@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:slam_dunk_all_star_v2/models/auth.dart';
+import 'package:slam_dunk_all_star_v2/ui/components/custom_decoration.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -84,6 +85,7 @@ class _LoginPageState extends State<LoginPage> {
         title: _title(),
       ),
       body: Container(
+          decoration: customDecoration().customBackground(),
           height: double.infinity,
           width: double.infinity,
           padding: const EdgeInsets.all(20),
