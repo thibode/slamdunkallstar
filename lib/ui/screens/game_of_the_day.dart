@@ -29,10 +29,11 @@ class _GameOfTheDayState extends State<GameOfTheDay> {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         leading: Row(
+          // ignore: prefer_const_literals_to_create_immutables
           children: [
             const Icon(
               Icons.sports_basketball,
-              color: const Color.fromARGB(255, 0, 0, 0),
+              color: Color.fromARGB(255, 0, 0, 0),
             ),
             const SizedBox(width: 10),
           ],
@@ -40,9 +41,9 @@ class _GameOfTheDayState extends State<GameOfTheDay> {
         title: const Text("Matchs of the day !"),
       ),
       body: Container(
-          decoration: customDecoration().customBackground(),
+          decoration: CustomDecoration().customBackground(),
           child: const TodaysGameView()),
-      bottomNavigationBar: CustomBottomAppBar(),
+      bottomNavigationBar: const CustomBottomAppBar(),
     );
   }
 }

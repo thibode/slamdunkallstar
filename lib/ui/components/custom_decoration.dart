@@ -1,13 +1,13 @@
 import "package:flutter/material.dart";
 
-class customDecoration {
+class CustomDecoration {
   BoxDecoration customBackground() {
     return BoxDecoration(
-      image: new DecorationImage(
-        image: new ExactAssetImage('assets/images/720003.jpg'),
+      image: DecorationImage(
+        image: ExactAssetImage('assets/images/720003.jpg'),
         fit: BoxFit.cover,
-        colorFilter: new ColorFilter.mode(
-            Colors.black.withOpacity(0.5), BlendMode.dstATop),
+        colorFilter:
+            ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.dstATop),
       ),
       color: Colors.white.withOpacity(0.2),
       backgroundBlendMode: BlendMode.dstATop,

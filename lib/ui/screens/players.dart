@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:slam_dunk_all_star_v2/models/players.dart';
-import 'package:slam_dunk_all_star_v2/models/team.dart';
 import 'package:slam_dunk_all_star_v2/repository/players_repository.dart';
 import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
@@ -25,11 +24,12 @@ class _PlayersState extends State<Players> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     final teamRepository = TeamRepository();
 
     return Scaffold(
       body: Container(
-        decoration: customDecoration().customBackground(),
+        decoration: CustomDecoration().customBackground(),
         child: FutureBuilder(
           future: _player,
           builder: (context, snapshot) {
@@ -43,6 +43,7 @@ class _PlayersState extends State<Players> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
+                    // ignore: prefer_const_constructors
                     margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     // ignore: sort_child_properties_last
                     child: ListTile(

@@ -10,6 +10,7 @@ class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomeState createState() => _HomeState();
 }
 
@@ -34,7 +35,7 @@ class _HomeState extends State<Home> {
         title: const Text("Matchs of the day !"),
       ),
       body: Container(
-        decoration: customDecoration().customBackground(),
+        decoration: CustomDecoration().customBackground(),
         child: Column(
           children: [
             const SizedBox(height: 20),

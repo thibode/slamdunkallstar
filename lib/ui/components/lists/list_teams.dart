@@ -11,7 +11,7 @@ class TeamListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: customDecoration().customBackground(),
+        decoration: CustomDecoration().customBackground(),
         child: FutureBuilder<List<Team>>(
           future: TeamRepository().getAllTeams(),
           builder: (context, snapshot) {

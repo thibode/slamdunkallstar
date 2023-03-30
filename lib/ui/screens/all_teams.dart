@@ -19,7 +19,7 @@ class _AllTeamScreenState extends State<AllTeamScreen> {
         foregroundColor: Colors.black,
       ),
       body: const TeamListView(),
-      bottomNavigationBar: CustomBottomAppBar(),
+      bottomNavigationBar: const CustomBottomAppBar(),
     );
   }
 }

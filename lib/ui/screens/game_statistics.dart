@@ -28,7 +28,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
         title: const Text("Game Statistics"),
       ),
       body: Container(
-        decoration: customDecoration().customBackground(),
+        decoration: CustomDecoration().customBackground(),
         child: FutureBuilder(
           future: _gameStats,
           builder: (context, snapshot) {

@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
         title: _title(),
       ),
       body: Container(
-          decoration: customDecoration().customBackground(),
+          decoration: CustomDecoration().customBackground(),
           height: double.infinity,
           width: double.infinity,
           padding: const EdgeInsets.all(20),
