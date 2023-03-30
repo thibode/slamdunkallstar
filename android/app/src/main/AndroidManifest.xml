@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.slam_dunk_all_star_v2">
    <application
-        android:label="slam_dunk_all_star_v2"
+        android:label="Slam Dunk All Star"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
