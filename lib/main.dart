@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:slam_dunk_all_star_v2/ui/screens/authentication/login_register_page.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/errors/error_404.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/game_of_the_day.dart';
-import 'package:slam_dunk_all_star_v2/ui/screens/home.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/all_teams.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/authentication/widget_tree.dart';

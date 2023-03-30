@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import '../models/team.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import '../models/environment.dart';
 
 class TeamRepository {
   var headers = {
@@ -35,9 +34,9 @@ class TeamRepository {
   }
 
   Future<List<Team>> getTeamById(int? teamId) async {
-    var queryParameters = {
-      "team": teamId,
-    };
+    // var queryParameters = {
+    //   "team": teamId,
+    // };
 
     final uri = Uri.https(dotenv.get("API_URL"), 'teams');
     var response = await http.get(uri, headers: headers);

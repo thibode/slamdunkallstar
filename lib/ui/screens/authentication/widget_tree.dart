@@ -1,6 +1,5 @@
 import 'package:slam_dunk_all_star_v2/models/auth.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/authentication/login_register_page.dart';
-import 'package:slam_dunk_all_star_v2/ui/screens/authentication/sign_out.dart';
 import 'package:flutter/material.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/home.dart';
 

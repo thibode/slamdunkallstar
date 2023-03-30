@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:slam_dunk_all_star_v2/models/auth.dart';
 import 'package:flutter/material.dart';
-import 'package:slam_dunk_all_star_v2/ui/screens/authentication/login_register_page.dart';
 
 class SignOutPage extends StatelessWidget {
   SignOutPage({Key? key}) : super(key: key);
@@ -26,7 +25,7 @@ class SignOutPage extends StatelessWidget {
         signOut();
         Navigator.popUntil(context, ModalRoute.withName("/"));
       },
-      child: Text('Se déconnecter'),
+      child: const Text('Se déconnecter'),
     );
   }
 

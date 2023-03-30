@@ -4,7 +4,7 @@ class CustomDecoration {
   BoxDecoration customBackground() {
     return BoxDecoration(
       image: DecorationImage(
-        image: ExactAssetImage('assets/images/720003.jpg'),
+        image: const ExactAssetImage('assets/images/720003.jpg'),
         fit: BoxFit.cover,
         colorFilter:
             ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.dstATop),
@@ -15,7 +15,7 @@ class CustomDecoration {
         BoxShadow(
           color: Colors.black.withOpacity(0.5),
           blurRadius: 20,
-          offset: Offset(0, 10),
+          offset: const Offset(0, 10),
         ),
       ],
     );

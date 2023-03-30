@@ -26,7 +26,7 @@ class TeamListView extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
-                    color: Color.fromRGBO(255, 255, 255, 0.7),
+                    color: const Color.fromRGBO(255, 255, 255, 0.7),
                     semanticContainer: true,
                     child: Column(
                       children: [
