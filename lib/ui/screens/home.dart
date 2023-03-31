@@ -17,16 +17,22 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        leading: Row(
-          children: const [
-            Icon(
+        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          // ignore: prefer_const_literals_to_create_immutables
+          children: [
+            const Icon(
               Icons.sports_basketball,
               color: Colors.black,
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
+            const Text(
+              "Accueil",
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
-        title: const Text("Matchs of the day !"),
       ),
       body: Container(
         decoration: CustomDecoration().customBackground(),
