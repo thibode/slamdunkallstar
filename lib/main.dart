@@ -43,12 +43,6 @@ class _MainAppState extends State<MainApp> {
     return MaterialApp(
       title: "Slam Dunk All Stars",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: Colors.white, //<-- SEE HERE
-              displayColor: Colors.white, //<-- SEE HERE
-            ),
-      ),
       initialRoute: "/",
       routes: {
         "/": (context) => const WidgetTree(),

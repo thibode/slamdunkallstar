@@ -40,33 +40,82 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _title() {
-    return const Text('Slam Dunk All Star : Connexion');
+    return const Text(
+      'Slam Dunk All Star : Connexion',
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
+    );
   }
 
   Widget _entryField(
     String title,
     TextEditingController controller,
   ) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+    return Container(
+      margin: const EdgeInsets.only(top: 10),
+      child: TextField(
+        style: const TextStyle(color: Colors.white),
+        cursorColor: Colors.white,
+        controller: controller,
+        decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: Colors.white,
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: Colors.white,
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          labelText: title,
+          labelStyle: const TextStyle(color: Colors.white),
+          hintStyle: const TextStyle(color: Colors.white),
         ),
-        labelText: title,
       ),
     );
   }
 
   Widget _errorMessage() {
-    return Text(errorMessage == '' ? '' : 'Humm ? $errorMessage');
+    return Container(
+      margin: const EdgeInsets.all((8.0)),
+      child: Text(
+        errorMessage == ''
+            ? ''
+            : 'Humm ? Le mot de passe ou l\'email est incorrect',
+        style: const TextStyle(
+          color: Color.fromARGB(255, 255, 40, 25),
+          fontSize: 14,
+        ),
+      ),
+    );
   }
 
   Widget _submitButton() {
     return ElevatedButton(
       onPressed:
           isLogin ? signInWithEmailAndPassword : createUserWithEmailAndPassword,
-      child: Text(isLogin ? 'Login' : 'Register'),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+        textStyle: const TextStyle(fontSize: 16),
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+      ),
+      child: SizedBox(
+        width: 200,
+        child: Center(
+          child: Text(isLogin ? 'Connexion' : 'Inscription'),
+        ),
+      ),
     );
   }
 
@@ -77,7 +126,13 @@ class _LoginPageState extends State<LoginPage> {
           isLogin = !isLogin;
         });
       },
-      child: Text(isLogin ? 'Login instead' : 'Register instead'),
+      child: Text(
+        isLogin ? 'Pas encore inscrit ?' : 'Déjà inscrit ?',
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 14,
+        ),
+      ),
     );
   }
 
@@ -98,8 +153,8 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              _entryField('email', _controllerEmail),
-              _entryField('password', _controllerPassword),
+              _entryField('Adresse mail', _controllerEmail),
+              _entryField('Mot de passe', _controllerPassword),
               _errorMessage(),
               _submitButton(),
               _loginOrRegisterButton(),
