@@ -14,32 +14,14 @@ class GameRepository {
   Future<List<Game>> getMatchOfTheDay() async {
     DateTime dateNow = DateTime.now();
     String fullYear = DateFormat("yyyy-MM-dd").format(dateNow);
-    int year = int.parse(DateFormat("yyyy").format(dateNow));
-    int month = int.parse(DateFormat("MM").format(dateNow));
 
-    if (month >= 10 && month <= 12) {
-      var queryParameters = {
-        "season": year.toString(),
-        "date": fullYear,
-      };
-      final uri = Uri.https(dotenv.get("API_URL"), "/games", queryParameters);
-      var response = await http.get(uri, headers: headers);
-      final Map<String, dynamic> result = jsonDecode(response.body);
-      final List<dynamic> gameOfTheDay = result["response"];
+    var queryParameters = {
+      "date": fullYear,
+    };
 
-      return gameOfTheDay
-          .cast<Map<String, dynamic>>()
-          .map((e) => Game.fromJson(e))
-          .toList();
-    }
-
-    if (month < 10) {
-      var queryParameters = {
-        "season": (year - 1).toString(),
-        "date": fullYear,
-      };
-      final uri = Uri.https(dotenv.get("API_URL"), "/games", queryParameters);
-      var response = await http.get(uri, headers: headers);
+    final uri = Uri.https(dotenv.get("API_URL"), "/games", queryParameters);
+    var response = await http.get(uri, headers: headers);
+    if (response.statusCode == 200) {
       final Map<String, dynamic> result = jsonDecode(response.body);
       final List<dynamic> gameOfTheDay = result["response"];
 

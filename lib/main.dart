@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:provider/provider.dart';
+import 'package:slam_dunk_all_star_v2/providers/team_provider.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/errors/error_404.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/game_of_the_day.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/all_teams.dart';
@@ -16,7 +18,14 @@ Future<void> main() async {
   }
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MainApp(title: "Slam Dunk All Stars"));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => TeamProvider()),
+      ],
+      child: const MainApp(title: "Slam Dunk All Stars"),
+    ),
+  );
 }
 
 class MainApp extends StatefulWidget {

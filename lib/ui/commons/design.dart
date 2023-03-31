@@ -16,4 +16,5 @@ class AppColors {
   static Color stealblue = const Color(0xFF003566);
   static Color darkblue = const Color(0xFF001d3d);
   static Color darkGrey = const Color.fromARGB(58, 158, 158, 158);
+  static Color lightGrey = const Color.fromRGBO(255, 255, 255, 0.7);
 }
