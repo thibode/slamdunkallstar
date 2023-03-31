@@ -14,17 +14,17 @@ class FireAuth {
         password: password,
       );
       user = userCredential.user;
-      await user!.updateProfile(displayName: name);
+      await user!.updateDisplayName(name.toString());
       await user.reload();
       user = auth.currentUser;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
+        'The password provided is too weak.';
       } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+        'The account already exists for that email.';
       }
     } catch (e) {
-      print(e);
+      e.toString();
     }
     return user;
   }

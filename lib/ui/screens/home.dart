@@ -22,14 +22,12 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         leading: Row(
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            // ignore: prefer_const_constructors
+          children: const [
             Icon(
               Icons.sports_basketball,
               color: Colors.black,
             ),
-            const SizedBox(width: 10),
+            SizedBox(width: 10),
           ],
         ),
         title: const Text("Matchs of the day !"),
