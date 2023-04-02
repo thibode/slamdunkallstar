@@ -4,7 +4,7 @@
 
 Projet réalisé dans le cadre de notre formation de Concepteur Développeur d'Application.
 
-[img](./assets/images/logo.png)
+(./assets/images/logo.png)
 
 ## Contexte
 
