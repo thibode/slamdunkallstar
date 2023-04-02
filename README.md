@@ -3,7 +3,7 @@
 Etudiants: Léon CHA & Thibault DEQUIDT.
 Projet réalisé dans le cadre de notre formation de Concepteur Développeur d'Application.
 
-./assets/images/logo.png
+[cover](./assets/images/logo.png)
 
 Contexte: Ce projet est une application développé en Dart avec le framework Flutter. Il s'agit d'une appli sur la NBA.
 
