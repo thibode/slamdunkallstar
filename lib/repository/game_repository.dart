@@ -34,12 +34,26 @@ class GameRepository {
     }
   }
 
+  Future<List<Game>> getGameById(String id) async {
+    var queryParameters = {"id": id};
+
+    final uri = Uri.https(dotenv.get("API_URL"), "/games", queryParameters);
+    var response = await http.get(uri, headers: headers);
+
+    final Map<String, dynamic> result = jsonDecode(response.body);
+    final List<dynamic> gameStatistcsList = result["response"];
+    return gameStatistcsList
+        .cast<Map<String, dynamic>>()
+        .map((e) => Game.fromJson(e))
+        .toList();
+  }
+
   //Méthode Game Statistics
   Future<List<GameStatistic>> getGameStats(String id) async {
     var queryParameters = {"id": id};
 
     final uri =
-        Uri.https(dotenv.get("API_URL"), "games/statistics", queryParameters);
+        Uri.https(dotenv.get("API_URL"), "/games/statistics", queryParameters);
     var response = await http.get(uri, headers: headers);
     final Map<String, dynamic> result = jsonDecode(response.body);
     final List<dynamic> gameStatistcsList = result["response"];

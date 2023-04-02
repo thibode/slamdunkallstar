@@ -5,15 +5,15 @@ import 'package:slam_dunk_all_star_v2/repository/team_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/custom_decoration.dart';
 
-class Players extends StatefulWidget {
+class PlayersView extends StatefulWidget {
   final String teamId;
-  const Players({Key? key, required this.teamId}) : super(key: key);
+  const PlayersView({Key? key, required this.teamId}) : super(key: key);
 
   @override
-  State<Players> createState() => _PlayersState();
+  State<PlayersView> createState() => _PlayersViewState();
 }
 
-class _PlayersState extends State<Players> {
+class _PlayersViewState extends State<PlayersView> {
   late Future<List<Player>> _player;
 
   @override

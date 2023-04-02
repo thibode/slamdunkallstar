@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:slam_dunk_all_star_v2/models/players.dart';
+import 'package:slam_dunk_all_star_v2/repository/players_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/custom_decoration.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:slam_dunk_all_star_v2/ui/screens/search_player.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -19,10 +22,18 @@ class _HomeState extends State<Home> {
     }
   }
 
+  List<Player>? _searchResults;
+  Future<List<Player>> _searchPlayer(String playerName) async {
+    return await PlayerRepository().searchPlayer(playerName);
+  }
+
+  final TextEditingController _searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         centerTitle: true,

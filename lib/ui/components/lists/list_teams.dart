@@ -39,7 +39,7 @@ class TeamListView extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Players(
+                                builder: (context) => PlayersView(
                                       teamId: team.id.toString(),
                                     )));
                       },
