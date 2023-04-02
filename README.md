@@ -4,7 +4,7 @@
 
 Projet réalisé dans le cadre de notre formation de Concepteur Développeur d'Application.
 
-(./assets/images/logo.png)
+![LogoSlamDunkAllStar](./assets/images/logo.png)
 
 ## Contexte
 
