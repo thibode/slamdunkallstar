@@ -57,7 +57,7 @@ class TeamListView extends StatelessWidget {
                           Text(
                             "[ ${team.city} | ${team.conference} | ${team.division} ]",
                             style: TextStyle(
-                                fontSize: 11,
+                                fontSize: 10,
                                 color: Colors.grey[600],
                                 fontWeight: FontWeight.w500,
                                 fontStyle: FontStyle.italic),

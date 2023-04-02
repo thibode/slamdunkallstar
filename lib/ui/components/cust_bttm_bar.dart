@@ -14,7 +14,9 @@ class CustomBottomAppBar extends StatelessWidget {
           MaterialButton(
             child: Icon(
               Icons.home,
-              color: route?.settings.name == "/" ? Colors.blue : Colors.black,
+              color: route?.settings.name == "/"
+                  ? const Color.fromARGB(255, 239, 115, 106)
+                  : Colors.black,
             ),
             onPressed: () {
               if (route?.settings.name != "/") {
@@ -29,7 +31,7 @@ class CustomBottomAppBar extends StatelessWidget {
                 Icon(
                   Icons.list,
                   color: route?.settings.name == "/teams"
-                      ? Colors.blue
+                      ? const Color.fromARGB(255, 239, 115, 106)
                       : Colors.black,
                 ),
               ],
@@ -50,9 +52,9 @@ class CustomBottomAppBar extends StatelessWidget {
             child: Row(
               children: [
                 Icon(
-                  Icons.games,
+                  Icons.sports_basketball_rounded,
                   color: route?.settings.name == "/gameOfTheDay"
-                      ? Colors.blue
+                      ? const Color.fromARGB(255, 239, 115, 106)
                       : Colors.black,
                 ),
               ],
@@ -69,9 +71,9 @@ class CustomBottomAppBar extends StatelessWidget {
             child: Row(
               children: [
                 Icon(
-                  Icons.stop,
+                  Icons.exit_to_app,
                   color: route?.settings.name == "/signOut"
-                      ? Colors.blue
+                      ? const Color.fromARGB(255, 239, 115, 106)
                       : Colors.black,
                 ),
               ],

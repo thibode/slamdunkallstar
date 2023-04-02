@@ -13,11 +13,20 @@ class SignOutPage extends StatelessWidget {
   }
 
   Widget _title() {
-    return const Text('Sign Out');
+    return const Text('Déconnexion');
   }
 
   Widget _userUid() {
-    return Text(user?.email ?? 'User email');
+    return Container(
+      margin: const EdgeInsets.only(bottom: 20),
+      child: const Text(
+        'Êtes-vous sur de vouloir vous déconnecter ?',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 18,
+        ),
+      ),
+    );
   }
 
   Widget _signOutButton(context) {
@@ -26,7 +35,32 @@ class SignOutPage extends StatelessWidget {
         signOut();
         Navigator.popUntil(context, ModalRoute.withName("/"));
       },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+        textStyle: const TextStyle(fontSize: 16),
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+      ),
       child: const Text('Se déconnecter'),
+    );
+  }
+
+  Widget _backHomeButton(context) {
+    var route = ModalRoute.of(context);
+    return MaterialButton(
+      child: const Icon(
+        Icons.cancel_sharp,
+        color: Colors.white,
+      ),
+      onPressed: () {
+        if (route?.settings.name != "/") {
+          Navigator.pushNamed(context, "/");
+        }
+      },
     );
   }
 
@@ -50,6 +84,7 @@ class SignOutPage extends StatelessWidget {
           children: [
             _userUid(),
             _signOutButton(context),
+            _backHomeButton(context),
           ],
         ),
       ),

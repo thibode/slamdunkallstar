@@ -27,7 +27,7 @@ class _GameOfTheDayState extends State<GameOfTheDay> {
             const SizedBox(width: 10),
           ],
         ),
-        title: const Text("Matchs of the day !"),
+        title: const Text("Les matchs du jour !"),
       ),
       body: Container(
           decoration: CustomDecoration().customBackground(),
