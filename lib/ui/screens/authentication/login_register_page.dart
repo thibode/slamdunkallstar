@@ -50,13 +50,47 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _entryField(
+  Widget _inputFieldMail(
     String title,
     TextEditingController controller,
   ) {
     return Container(
       margin: const EdgeInsets.only(top: 10),
       child: TextField(
+        style: const TextStyle(color: Colors.white),
+        cursorColor: Colors.white,
+        controller: controller,
+        decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: Colors.white,
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: Colors.white,
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          labelText: title,
+          labelStyle: const TextStyle(color: Colors.white),
+          hintStyle: const TextStyle(color: Colors.white),
+        ),
+      ),
+    );
+  }
+
+  Widget _inputFieldPwd(
+    String title,
+    TextEditingController controller,
+  ) {
+    return Container(
+      margin: const EdgeInsets.only(top: 10),
+      child: TextField(
+        obscureText: true,
+        enableSuggestions: false,
+        autocorrect: false,
         style: const TextStyle(color: Colors.white),
         cursorColor: Colors.white,
         controller: controller,
@@ -153,8 +187,8 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              _entryField('Adresse mail', _controllerEmail),
-              _entryField('Mot de passe', _controllerPassword),
+              _inputFieldMail('Adresse mail', _controllerEmail),
+              _inputFieldPwd('Mot de passe', _controllerPassword),
               _errorMessage(),
               _submitButton(),
               _loginOrRegisterButton(),
