@@ -1,33 +1,37 @@
 # Slam Dunk All Star
 
-Etudiants: Léon CHA & Thibault DEQUIDT.
+Étudiants: Léon CHA & Thibault DEQUIDT.
+
 Projet réalisé dans le cadre de notre formation de Concepteur Développeur d'Application.
 
-[cover](./assets/images/logo.png)
+[img](./assets/images/logo.png)
 
-Contexte: Ce projet est une application développé en Dart avec le framework Flutter. Il s'agit d'une appli sur la NBA.
+## Contexte
+
+Ce projet est une application développée en Dart avec le framework Flutter. Il s'agit d'une appli sur la NBA.
 
 ## Lancer le projet
 
-Version de Dart: 2.19.6
-Version de Flutter: 3.7.9
+Versions requises :
 
-Pour avoir accès à ce projet il vous faut:
+- Dart 2.19.6
+- Flutter 3.7.9
 
-    cloner le repository : https://github.com/thibode/slamdunkallstar.git
-    copier le .env et .env.local que nous vous enverrons par message dans Teams.
-    exécuter la commande flutter pub get.
+Pour avoir accès à ce projet, il vous faut :
 
-Une fois que vous avez réalisé toute ces étapes il ne vous restera qu'à exécuter la commande flutter run.
+1. cloner le repository : `https://github.com/thibode/slamdunkallstar.git`
+2. copier le `.env` et `.env.local` que nous vous enverrons par message dans Teams.
+3. exécuter la commande `flutter pub get`.
 
-### Ressources
+Une fois que vous avez réalisé toutes ces étapes, il ne vous restera qu'à exécuter la commande `flutter run`.
 
-Pour ce projet nous avons eu recours à plusieurs ressources, notamment l'API que nous avons utilisés.
+## Ressources
 
-    https://api-sports.io/
+Pour ce projet, nous avons eu recours à plusieurs ressources, notamment :
 
-Nous avons aussi utilisés les documentations de Dart (https://dart.dev/guides) et Flutter (https://docs.flutter.dev/).
-Le site Medium contient beaucoup de ressources liées à Flutter ce qui nous a été d'une grande utilité dans nos développement (https://medium.com/flutter).
-De nombreuses solutions ont été trouvées sur StackOverflow (https://stackoverflow.com/).
-Pour l'authentification une vidéo youtube nous a permis de comprendre pas à pas la mise en place d'une authentification avec Firebase pour android et ios (https://www.youtube.com/watch?v=rWamixHIKmQ).
-Dans certains cas Chat-GPT nous a été utile afin de nous proposer des idées pour nous débloquer de situation surtout liées aux widgets concernant le style de l'application (https://chat.openai.com/chat).
+- L'API que nous avons utilisée : https://api-sports.io/
+- Les documentations de Dart (https://dart.dev/guides) et Flutter (https://docs.flutter.dev/)
+- Le site Medium contient beaucoup de ressources liées à Flutter, ce qui nous a été d'une grande utilité dans nos développements : https://medium.com/flutter
+- De nombreuses solutions ont été trouvées sur StackOverflow (https://stackoverflow.com/)
+- Pour l'authentification, une vidéo YouTube nous a permis de comprendre pas à pas la mise en place d'une authentification avec Firebase pour Android et iOS : https://www.youtube.com/watch?v=rWamixHIKmQ
+- Dans certains cas, Chat-GPT nous a été utile afin de nous proposer des idées pour nous débloquer de situations, surtout liées aux widgets concernant le style de l'application : https://chat.openai.com/chat
