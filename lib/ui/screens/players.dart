@@ -39,7 +39,9 @@ class _PlayersViewState extends State<PlayersView> {
                 itemBuilder: (context, index) {
                   final player = snapshot.data![index];
                   return Card(
-                    elevation: 4,
+                    color: Color.fromARGB(186, 255, 253, 253),
+                    elevation: 4.0,
+                    semanticContainer: true,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -47,20 +49,55 @@ class _PlayersViewState extends State<PlayersView> {
                     margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     // ignore: sort_child_properties_last
                     child: ListTile(
-                      leading: CircleAvatar(
-                        backgroundImage: AssetImage(player.lastname.toString()),
-                        radius: 25,
+                      leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Image.asset(
+                          "./assets/images/basketteur.png",
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                      title: Text('${player.firstname} ${player.lastname}'),
-                      subtitle: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Début NBA : ${player.startNBA}'),
-                          Text('Date de naissance : ${player.birth}'),
-                        ],
+                      title: Container(
+                        margin: const EdgeInsets.only(top: 20),
+                        child: Text(
+                          '${player.firstname} ${player.lastname}',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      subtitle: Container(
+                        margin: const EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Début NBA : ${player.startNBA}',
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              'Date de naissance : ${player.birth}',
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              'Ville de naissance : ${player.birthCountry}',
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              'Ecole : ${player.college}',
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              'Taille : ${player.meters}',
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              'Poids: ${player.weight}',
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    color: Colors.white,
                   );
                 },
               );
