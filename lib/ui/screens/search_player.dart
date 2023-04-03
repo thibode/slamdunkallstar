@@ -22,6 +22,7 @@ class _SearchPlayerViewState extends State<SearchPlayerView> {
     }
   }
 
+  @override
   void initState() {
     super.initState();
     _searchResults = [];

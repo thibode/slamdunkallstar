@@ -25,7 +25,10 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Game Statistics"),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        centerTitle: true,
+        title: const Text("Statistiques du match :"),
       ),
       body: Container(
         decoration: CustomDecoration().customBackground(),

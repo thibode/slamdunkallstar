@@ -40,10 +40,18 @@ class _TodaysGameViewState extends State<TodaysGameView> {
                   return Column(children: [
                     const SizedBox(
                       height: 20,
+                      width: 250,
                     ),
-                    Row(
-                      children: [
-                        MaterialButton(
+                    Card(
+                        borderOnForeground: true,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        color: Colors.transparent,
+                        semanticContainer: true,
+                        child: MaterialButton(
+                          padding: const EdgeInsets.all(20),
                           onPressed: () {
                             GameRepository().getGameStats(
                                 snapshot.data![index].id.toString());
@@ -58,21 +66,40 @@ class _TodaysGameViewState extends State<TodaysGameView> {
                           child: Column(
                             children: [
                               Text(
-                                  "${toDaysGame[index].visitorName} - ${toDaysGame[index].homeName}"),
-                              Text(intVisitorPoints > intHomePoints
-                                  ? "Vainqueur: ${toDaysGame[index].visitorName} \n ${"$visitorPoints - $homePoints"}"
-                                  : (intVisitorPoints == intHomePoints) &&
-                                          (intVisitorPoints != 0)
-                                      ? "Egalité"
-                                      : intVisitorPoints == 0 &&
-                                              intHomePoints == 0
-                                          ? "Le match n'a pas encore eu lieu"
-                                          : "Vainqueur: ${toDaysGame[index].homeName} \n ${"$visitorPoints - $homePoints"}"),
+                                "${toDaysGame[index].visitorName} - ${toDaysGame[index].homeName}",
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                intVisitorPoints > intHomePoints
+                                    ? "Vainqueur: ${toDaysGame[index].visitorName} \n ${"$visitorPoints - $homePoints"}"
+                                    : (intVisitorPoints == intHomePoints) &&
+                                            (intVisitorPoints != 0)
+                                        ? "Egalité"
+                                        : intVisitorPoints == 0 &&
+                                                intHomePoints == 0
+                                            ? "Le match n'a pas encore eu lieu"
+                                            : "Vainqueur: ${toDaysGame[index].homeName} \n ${"$visitorPoints - $homePoints"}",
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
                             ],
                           ),
-                        )
-                      ],
-                    )
+                        )),
+                    Container(
+                      height: 2,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
                   ]);
                 });
           } else if (snapshot.hasError) {

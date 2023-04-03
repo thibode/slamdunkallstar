@@ -4,7 +4,6 @@ import 'package:slam_dunk_all_star_v2/repository/players_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/custom_decoration.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:slam_dunk_all_star_v2/ui/screens/search_player.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

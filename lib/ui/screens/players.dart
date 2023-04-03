@@ -39,7 +39,7 @@ class _PlayersViewState extends State<PlayersView> {
                 itemBuilder: (context, index) {
                   final player = snapshot.data![index];
                   return Card(
-                    color: Color.fromARGB(186, 255, 253, 253),
+                    color: const Color.fromARGB(186, 255, 253, 253),
                     elevation: 4.0,
                     semanticContainer: true,
                     shape: RoundedRectangleBorder(
