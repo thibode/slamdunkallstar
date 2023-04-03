@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:info_popup/info_popup.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/custom_decoration.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/lists/list_todays_game.dart';
