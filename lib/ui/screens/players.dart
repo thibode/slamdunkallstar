@@ -79,11 +79,11 @@ class _PlayersViewState extends State<PlayersView> {
                               textAlign: TextAlign.center,
                             ),
                             Text(
-                              'Ville de naissance : ${player.birthCountry}',
+                              'Pays de naissance : ${player.birthCountry}',
                               textAlign: TextAlign.center,
                             ),
                             Text(
-                              'Ecole : ${player.college}',
+                              'Études : ${player.college}',
                               textAlign: TextAlign.center,
                             ),
                             Text(
