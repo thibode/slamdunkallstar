@@ -35,7 +35,10 @@ class _PlayerStatsViewState extends State<PlayerStatsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Statistiques")),
+      appBar: AppBar(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          title: const Text("Statistiques du joueur :")),
       body: Container(
         decoration: CustomDecoration().customBackground(),
         padding: const EdgeInsets.all(16),
