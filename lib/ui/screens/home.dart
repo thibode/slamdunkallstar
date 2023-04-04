@@ -3,6 +3,7 @@ import 'package:slam_dunk_all_star_v2/models/players.dart';
 import 'package:slam_dunk_all_star_v2/repository/players_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/cust_bttm_bar.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/custom_decoration.dart';
+import 'package:slam_dunk_all_star_v2/ui/screens/search_player.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
@@ -55,6 +56,28 @@ class _HomeState extends State<Home> {
         decoration: CustomDecoration().customBackground(),
         child: Column(
           children: [
+            Container(
+              margin: const EdgeInsets.all(30.0),
+              child: TextField(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SearchPlayerView()));
+                  },
+                  readOnly: true,
+                  controller: _searchController,
+                  decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    hintStyle: const TextStyle(color: Colors.white),
+                    hintText: "Rechercher le nom d'un joueur",
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.search),
+                      color: Colors.white,
+                      onPressed: () {},
+                    ),
+                  )),
+            ),
             Expanded(
               flex: 1,
               child: Container(

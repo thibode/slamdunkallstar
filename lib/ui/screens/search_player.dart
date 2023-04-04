@@ -73,10 +73,12 @@ class _SearchPlayerViewState extends State<SearchPlayerView> {
                   return ListTile(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PlayerStatsView(
-                                  playerId: player.playerId.toString())));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PlayerStatsView(
+                              playerId: player.playerId.toString()),
+                        ),
+                      );
                     },
                     title: Text(
                       "${player.firstname.toString()} ${player.lastname.toString()}",

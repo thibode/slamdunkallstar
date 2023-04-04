@@ -74,7 +74,7 @@ class _PlayerStatsViewState extends State<PlayerStatsView> {
                     itemCount: playerStat.length,
                     itemBuilder: (context, index) {
                       final stat = playerStat[index];
-                      final game = games.firstWhere(
+                      final game = games.singleWhere(
                           (g) => g.id.toString() == stat.gameId.toString());
                       return Card(
                         elevation: 4,
@@ -87,7 +87,7 @@ class _PlayerStatsViewState extends State<PlayerStatsView> {
                         ),
                         child: ListTile(
                           title: Text(
-                            "Equipe ${game.homeName} ${game.visitorName}",
+                            "${game.homeName} VS ${game.visitorName}",
                           ),
                           subtitle: Text(
                             "${stat.assists} Assist, ${stat.blocks} blocage, ${stat.offensiveRebond == null ? '0 Rebond Offensif' : '${stat.offensiveRebond} rebond Offensif'}",
