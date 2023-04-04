@@ -44,50 +44,55 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
               secondTeamStats.add(snapshot.data![1]);
               return Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Wrap(
-                        children: [
-                          ...firstTeamStats.asMap().entries.map((entry) {
-                            final index = entry.key;
-                            final stat = entry.value;
-                            return ChoiceChip(
-                              label: Text(stat.name.toString()),
-                              selected: _selectedTeamIndex == index,
-                              onSelected: (isSelected) {
-                                if (isSelected) {
-                                  setState(() {
-                                    _selectedTeamIndex = index;
-                                  });
-                                }
-                              },
-                            );
-                          }).toList()
-                        ],
-                      ),
-                      Wrap(
-                        children: [
-                          ...secondTeamStats.asMap().entries.map((entry) {
-                            final index = entry.key;
-                            final stat = entry.value;
-                            return ChoiceChip(
-                              label: Text(stat.name.toString()),
-                              selected: _selectedTeamIndex ==
-                                  firstTeamStats.length + index,
-                              onSelected: (isSelected) {
-                                if (isSelected) {
-                                  setState(() {
-                                    _selectedTeamIndex =
-                                        firstTeamStats.length + index;
-                                  });
-                                }
-                              },
-                            );
-                          }).toList()
-                        ],
-                      ),
-                    ],
+                  Container(
+                    margin: const EdgeInsets.all(30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Wrap(
+                          children: [
+                            ...firstTeamStats.asMap().entries.map((entry) {
+                              final index = entry.key;
+                              final stat = entry.value;
+                              return ChoiceChip(
+                                backgroundColor: Colors.white,
+                                label: Text(stat.name.toString()),
+                                selected: _selectedTeamIndex == index,
+                                onSelected: (isSelected) {
+                                  if (isSelected) {
+                                    setState(() {
+                                      _selectedTeamIndex = index;
+                                    });
+                                  }
+                                },
+                              );
+                            }).toList()
+                          ],
+                        ),
+                        Wrap(
+                          children: [
+                            ...secondTeamStats.asMap().entries.map((entry) {
+                              final index = entry.key;
+                              final stat = entry.value;
+                              return ChoiceChip(
+                                backgroundColor: Colors.white,
+                                label: Text(stat.name.toString()),
+                                selected: _selectedTeamIndex ==
+                                    firstTeamStats.length + index,
+                                onSelected: (isSelected) {
+                                  if (isSelected) {
+                                    setState(() {
+                                      _selectedTeamIndex =
+                                          firstTeamStats.length + index;
+                                    });
+                                  }
+                                },
+                              );
+                            }).toList()
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   Expanded(
                     child: ListView(
@@ -95,24 +100,36 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                         return Column(
                           children: [
                             const SizedBox(
-                              height: 10,
+                              height: 30,
                             ),
                             Image(
                               image: NetworkImage(stat.logo.toString()),
                               height: 70,
                             ),
                             Text(stat.name.toString(),
-                                style: const TextStyle(fontSize: 40)),
+                                style: const TextStyle(
+                                    fontSize: 40, color: Colors.white)),
+                            const SizedBox(
+                              height: 30,
+                            ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: const Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Nombre tir réussi:"),
+                                    const Text("Nombre tir réussi :"),
                                     Text(stat.fieldGoalsMade.toString()),
                                   ],
                                 ),
@@ -120,14 +137,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: const Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Nombre de tir tenté:"),
+                                    const Text("Nombre de tir tenté :"),
                                     Text(stat.fieldGoalsAttempt.toString()),
                                   ],
                                 ),
@@ -135,14 +160,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Pourcentage de tir réussi"),
+                                    const Text("Pourcentage de tir réussi :"),
                                     Text(stat.fieldGoalsPercentage.toString()),
                                   ],
                                 ),
@@ -150,15 +183,23 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     const Text(
-                                        "Nombre de lancer franc réussi:"),
+                                        "Nombre de lancer franc réussi :"),
                                     Text(stat.freeThrowsMade.toString()),
                                   ],
                                 ),
@@ -166,14 +207,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Nombre de lancé franc tenté:"),
+                                    const Text("Nombre de lancé franc tenté :"),
                                     Text(stat.freeThrowsAttempt.toString()),
                                   ],
                                 ),
@@ -181,14 +230,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Pourcentage de lancé franc:"),
+                                    const Text("Pourcentage de lancé franc :"),
                                     Text(stat.freeThrowsPercentage.toString()),
                                   ],
                                 ),
@@ -196,14 +253,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Nombre de 3 points réussi"),
+                                    const Text("Nombre de 3 points réussi :"),
                                     Text(stat.threePointersAttempt.toString()),
                                   ],
                                 ),
@@ -211,14 +276,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Nombre de 3 points tenté"),
+                                    const Text("Nombre de 3 points tenté :"),
                                     Text(stat.threePointersAttempt.toString()),
                                   ],
                                 ),
@@ -226,15 +299,23 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     const Text(
-                                        "Pourcentage de 3 points réussi"),
+                                        "Pourcentage de 3 points réussi :"),
                                     Text(stat.threePointersPercentage
                                         .toString()),
                                   ],
@@ -243,14 +324,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("nombre d'assists"),
+                                    const Text("nombre d'assists :"),
                                     Text(stat.assists.toString()),
                                   ],
                                 ),
@@ -258,14 +347,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Points total: "),
+                                    const Text("Points total :"),
                                     Text(stat.points.toString()),
                                   ],
                                 ),
@@ -273,14 +370,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Nombre de vole: "),
+                                    const Text("Nombre de vole :"),
                                     Text(stat.steals.toString()),
                                   ],
                                 ),
@@ -288,14 +393,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Nombre de faute: "),
+                                    const Text("Nombre de faute :"),
                                     Text(stat.fouls.toString()),
                                   ],
                                 ),
@@ -303,14 +416,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Nombre de turnover: "),
+                                    const Text("Nombre de turnover :"),
                                     Text(stat.turnovers.toString()),
                                   ],
                                 ),
@@ -318,14 +439,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Nombre de rebond offensif: "),
+                                    const Text("Nombre de rebond offensif :"),
                                     Text(stat.offensiveRebond.toString()),
                                   ],
                                 ),
@@ -333,14 +462,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Nombre de rebond defensif: "),
+                                    const Text("Nombre de rebond defensif :"),
                                     Text(stat.defensiveRebond.toString()),
                                   ],
                                 ),
@@ -348,14 +485,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Nombre de total de rebond: "),
+                                    const Text("Nombre de total de rebond :"),
                                     Text(stat.totalRebond.toString()),
                                   ],
                                 ),
@@ -363,14 +508,22 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                             Container(
                               height: 50,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 5,
+                              ),
                               child: Card(
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                color: Color.fromARGB(211, 255, 253, 253),
+                                semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    const Text("Nombre de tir bloqué: "),
+                                    const Text("Nombre de tir bloqué :"),
                                     Text(stat.blocks.toString()),
                                   ],
                                 ),

@@ -57,7 +57,8 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsets.all(30.0),
+              margin: const EdgeInsets.all(5),
+              padding: const EdgeInsets.all(5),
               child: TextField(
                   onTap: () {
                     Navigator.push(
@@ -71,6 +72,11 @@ class _HomeState extends State<Home> {
                     fillColor: Colors.white,
                     hintStyle: const TextStyle(color: Colors.white),
                     hintText: "Rechercher le nom d'un joueur",
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
+                    ),
                     suffixIcon: IconButton(
                       icon: const Icon(Icons.search),
                       color: Colors.white,
@@ -96,18 +102,17 @@ class _HomeState extends State<Home> {
                 margin: const EdgeInsets.all(20),
                 padding: const EdgeInsets.all(20),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
                     Text(
                       "Bienvenue sur Slam Dunk All Star !",
                       style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 10),
                     Text(
-                      "Cette application va vous permettre de suivre les derniers résultat de la NBA, de voir les informations des joueurs, des équipes et de suivre les actualités.",
+                      "Cette application va vous permettre de suivre les derniers résultat de la NBA, de voir les informations des joueurs, des équipes et de suivre les actualités de la ligue.",
                       style: TextStyle(
                         fontSize: 16,
                       ),
@@ -116,7 +121,6 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(

@@ -32,9 +32,14 @@ class _SearchPlayerViewState extends State<SearchPlayerView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Slam Dunk All Stars"),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        centerTitle: true,
+        title: const Text("Rechercher un joueur :"),
       ),
       body: Container(
+        margin: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         decoration: CustomDecoration().customBackground(),
         child: Column(children: [
           TextField(
@@ -52,17 +57,30 @@ class _SearchPlayerViewState extends State<SearchPlayerView> {
                 });
               }
             },
+            style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
-                labelStyle: const TextStyle(color: Colors.white),
-                hintStyle: const TextStyle(color: Colors.white),
-                hintText: "Rechercher le nom d'un joueur",
-                prefixIcon: IconButton(
-                  icon: const Icon(Icons.search),
+              labelStyle: const TextStyle(color: Colors.white),
+              hintStyle: const TextStyle(color: Colors.white),
+              hintText: "Rechercher le nom d'un joueur",
+              enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
                   color: Colors.white,
-                  onPressed: () {},
                 ),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0))),
+              ),
+              focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.white,
+                ),
+              ),
+              prefixIcon: IconButton(
+                icon: const Icon(Icons.search),
+                color: Colors.white,
+                onPressed: () {},
+              ),
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+            ),
+            cursorColor: Colors.white,
           ),
           if (_searchResults!.isNotEmpty)
             Expanded(

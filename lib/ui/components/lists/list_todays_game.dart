@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/game_statistics.dart';
 import 'package:slam_dunk_all_star_v2/models/game.dart';
 import 'package:slam_dunk_all_star_v2/repository/game_repository.dart';
+import 'package:slam_dunk_all_star_v2/ui/screens/errors/error_404.dart';
 
 class TodaysGameView extends StatefulWidget {
   const TodaysGameView({super.key});
@@ -53,15 +54,22 @@ class _TodaysGameViewState extends State<TodaysGameView> {
                         child: MaterialButton(
                           padding: const EdgeInsets.all(20),
                           onPressed: () {
-                            GameRepository().getGameStats(
-                                snapshot.data![index].id.toString());
-
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => GameStatisticsView(
-                                        id: snapshot.data![index].id
-                                            .toString())));
+                            if (snapshot.data![index].visitorPoints == null ||
+                                snapshot.data![index].homePoints == null) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Error404()));
+                            } else {
+                              GameRepository().getGameStats(
+                                  snapshot.data![index].id.toString());
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => GameStatisticsView(
+                                          id: snapshot.data![index].id
+                                              .toString())));
+                            }
                           },
                           child: Column(
                             children: [
