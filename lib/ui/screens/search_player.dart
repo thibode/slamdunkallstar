@@ -13,11 +13,11 @@ class SearchPlayerView extends StatefulWidget {
 
 class _SearchPlayerViewState extends State<SearchPlayerView> {
   List<Player>? _searchResults;
-  Future<List<Player>> _searchPlayer(String playerName) async {
+  Future<List<Player>> searchPlayer(String playerName) async {
     try {
       return await PlayerRepository().searchPlayer(playerName);
     } catch (e) {
-      print(e);
+      e.toString();
       return [];
     }
   }

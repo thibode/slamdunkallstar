@@ -8,6 +8,7 @@ import 'package:slam_dunk_all_star_v2/ui/screens/all_teams.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/authentication/widget_tree.dart';
 import 'package:slam_dunk_all_star_v2/ui/screens/authentication/sign_out.dart';
+import 'package:flutter/services.dart';
 
 Future<void> main() async {
   const bool kReleaseMode = bool.fromEnvironment('dart.vm.product');
@@ -40,6 +41,7 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
       title: "Slam Dunk All Stars",
       debugShowCheckedModeBanner: false,

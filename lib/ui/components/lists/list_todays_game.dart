@@ -54,8 +54,9 @@ class _TodaysGameViewState extends State<TodaysGameView> {
                         child: MaterialButton(
                           padding: const EdgeInsets.all(20),
                           onPressed: () {
-                            if (snapshot.data![index].visitorPoints == null ||
-                                snapshot.data![index].homePoints == null) {
+                            // ignore: unrelated_type_equality_checks
+                            if (snapshot.data![index].homePoints == null &&
+                                snapshot.data![index].visitorPoints == null) {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(

@@ -15,9 +15,24 @@ class _AllTeamScreenState extends State<AllTeamScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Liste des équipes"),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(
+              Icons.sports_basketball,
+              color: Colors.black,
+            ),
+            SizedBox(width: 10),
+            Text(
+              "Liste des équipes :",
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
       body: Container(
           decoration: CustomDecoration().customBackground(),

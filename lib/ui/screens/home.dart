@@ -10,10 +10,10 @@ class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  HomeState createState() => HomeState();
 }
 
-class _HomeState extends State<Home> {
+class HomeState extends State<Home> {
   Future<void> _launchUrl(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
   }
 
   List<Player>? _searchResults;
-  Future<List<Player>> _searchPlayer(String playerName) async {
+  Future<List<Player>> searchPlayer(String playerName) async {
     return await PlayerRepository().searchPlayer(playerName);
   }
 

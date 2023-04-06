@@ -28,6 +28,12 @@ class _PlayersViewState extends State<PlayersView> {
     final teamRepository = TeamRepository();
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        centerTitle: true,
+        title: const Text("Liste des joueurs :"),
+      ),
       body: Container(
         decoration: CustomDecoration().customBackground(),
         child: FutureBuilder(

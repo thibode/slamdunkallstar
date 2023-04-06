@@ -169,7 +169,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -192,7 +192,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -216,7 +216,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -239,7 +239,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -262,7 +262,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -285,7 +285,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -308,7 +308,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -333,7 +333,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -356,7 +356,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -379,7 +379,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -402,7 +402,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -425,7 +425,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -448,7 +448,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -471,7 +471,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -494,7 +494,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -517,7 +517,7 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
-                                color: Color.fromARGB(211, 255, 253, 253),
+                                color: const Color.fromARGB(211, 255, 253, 253),
                                 semanticContainer: true,
                                 child: Row(
                                   mainAxisAlignment:
@@ -531,9 +531,6 @@ class _GameStatisticsViewState extends State<GameStatisticsView> {
                             ),
                           ],
                         );
-                        // return ListTile(
-                        //   title: Text(stat.name.toString()),
-                        // );
                       }).toList(),
                     ),
                   )
