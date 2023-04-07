@@ -7,6 +7,8 @@ import 'package:slam_dunk_all_star_v2/repository/game_repository.dart';
 import 'package:slam_dunk_all_star_v2/repository/players_repository.dart';
 import 'package:slam_dunk_all_star_v2/ui/components/custom_decoration.dart';
 
+import 'game_statistics.dart';
+
 class PlayerStatsView extends StatefulWidget {
   final String playerId;
   const PlayerStatsView({Key? key, required this.playerId}) : super(key: key);
@@ -52,12 +54,16 @@ class _PlayerStatsViewState extends State<PlayerStatsView> {
               builder: (context, snapshot) {
                 if (snapshot.hasData && snapshot.data!.isNotEmpty) {
                   final player = snapshot.data![0];
-                  return Text(
-                    "${player.firstname} ${player.lastname}",
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+                  return Container(
+                    margin: const EdgeInsets.all(20),
+                    child: Text(
+                      "${player.firstname} ${player.lastname} :",
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   );
                 } else if (snapshot.hasError) {
@@ -90,16 +96,33 @@ class _PlayerStatsViewState extends State<PlayerStatsView> {
 
                     // Créer un objet TeamNames avec les propriétés souhaitées
                     String? homeName = game.homeName;
-                    String? homeLogo = game.homeLogo;
                     String? visitorName = game.visitorName;
-                    String? visitorLogo = game.visitorLogo;
-                    int? fouls = playerStat.fouls;
+                    String? position = playerStat.position;
                     int? threePointerMade = playerStat.threePointersMade;
-                    0; // Remplacer par la propriété réelle
+                    int? assists = playerStat.assists;
+                    int? points = playerStat.points;
+                    int? steals = playerStat.steals;
+                    int? blocks = playerStat.blocks;
+                    int? turnovers = playerStat.turnovers;
+                    String? playingTime = playerStat.playingTime;
+                    int? offensiveRebond = playerStat.offensiveRebond;
+                    int? fouls = playerStat.fouls;
+                    int? defensiveRebond = playerStat.defensiveRebond;
+                    // Remplacer par la propriété réelle
                     return GamePlayerStat(
                       homeName: homeName,
                       visitorName: visitorName,
                       threePointersMade: threePointerMade,
+                      fouls: fouls,
+                      position: position,
+                      assists: assists,
+                      points: points,
+                      steals: steals,
+                      blocks: blocks,
+                      turnovers: turnovers,
+                      playingTime: playingTime,
+                      offensiveRebond: offensiveRebond,
+                      defensiveRebond: defensiveRebond,
                     );
                   }).toList();
 
@@ -109,10 +132,93 @@ class _PlayerStatsViewState extends State<PlayerStatsView> {
                       itemBuilder: (context, index) {
                         // Utiliser les propriétés de TeamNames dans l'affichage
                         return ListTile(
-                          title: Text(
-                              "${teamNames[index].homeName} VS ${teamNames[index].visitorName}"),
-                          subtitle: Text(
-                              "Trois points : ${teamNames[index].threePointersMade}"),
+                          title: MaterialButton(
+                            onPressed: () {
+                              GameRepository().getGameStats(
+                                playerStats[index].gameId.toString(),
+                              );
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => GameStatisticsView(
+                                            id: playerStats[index]
+                                                .gameId
+                                                .toString(),
+                                          )));
+                            },
+                            child: Text(
+                                "${teamNames[index].homeName} VS ${teamNames[index].visitorName}",
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.center),
+                          ),
+                          subtitle: Container(
+                            margin: const EdgeInsets.all(20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Position: ${teamNames[index].position}",
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  "Points: ${teamNames[index].points}",
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  "Trois points: ${teamNames[index].threePointersMade}",
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  "Assists: ${teamNames[index].assists}",
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  "Vol du ballon: ${teamNames[index].steals}",
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  "Contre: ${teamNames[index].turnovers}",
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  "Fautes: ${teamNames[index].fouls}",
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         );
                       },
                     ),
