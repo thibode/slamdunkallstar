@@ -53,10 +53,12 @@ class HomeState extends State<Home> {
         ),
       ),
       body: Container(
+        width: MediaQuery.of(context).size.width,
         decoration: CustomDecoration().customBackground(),
         child: Column(
           children: [
             Container(
+              width: MediaQuery.of(context).size.width,
               margin: const EdgeInsets.all(5),
               padding: const EdgeInsets.all(5),
               child: TextField(
@@ -87,9 +89,10 @@ class HomeState extends State<Home> {
             Expanded(
               flex: 1,
               child: Container(
+                width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.white.withOpacity(0.8),
+                  color: Colors.grey,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
@@ -99,7 +102,11 @@ class HomeState extends State<Home> {
                     ),
                   ],
                 ),
-                margin: const EdgeInsets.all(20),
+                margin: const EdgeInsets.only(
+                  top: 10,
+                  left: 20,
+                  right: 20,
+                ),
                 padding: const EdgeInsets.all(20),
                 child: Column(
                   children: const [
@@ -121,9 +128,9 @@ class HomeState extends State<Home> {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
+            Container(
+              margin: const EdgeInsets.only(top: 10),
+              child: const Text(
                 "Sites références sur la NBA :",
                 style: TextStyle(
                   color: Colors.white,
@@ -135,6 +142,7 @@ class HomeState extends State<Home> {
             Expanded(
               flex: 1,
               child: Container(
+                width: MediaQuery.of(context).size.width,
                 margin: const EdgeInsets.symmetric(vertical: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -165,9 +173,11 @@ class HomeState extends State<Home> {
               ),
             ),
             Container(
+              width: MediaQuery.of(context).size.width,
               child: const Card(),
             ),
             Container(
+              width: MediaQuery.of(context).size.width,
               margin: const EdgeInsets.only(top: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

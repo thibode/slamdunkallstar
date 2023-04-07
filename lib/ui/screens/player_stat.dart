@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:slam_dunk_all_star_v2/models/game.dart';
+import 'package:slam_dunk_all_star_v2/models/game_players_stat.dart';
 import 'package:slam_dunk_all_star_v2/models/players.dart';
 import 'package:slam_dunk_all_star_v2/repository/game_repository.dart';
 import 'package:slam_dunk_all_star_v2/repository/players_repository.dart';
@@ -69,39 +71,57 @@ class _PlayerStatsViewState extends State<PlayerStatsView> {
             FutureBuilder(
               future: Future.wait([_playerStats, _gameStats]),
               builder: (context, snapshot) {
+                // Accédez aux données des deux futures à l'intérieur de `snapshot.data`
+                // en utilisant leur index respectif [0] et [1]
                 if (snapshot.hasData) {
-                  final playerStat = snapshot.data![0] as List<PlayerStats>;
-                  final games = snapshot.data![1] as List<Game>;
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: playerStat.length,
-                    itemBuilder: (context, index) {
-                      final stat = playerStat[index];
-                      final game = games.singleWhere(
-                          (g) => g.id.toString() == stat.gameId.toString());
-                      return Card(
-                        elevation: 4,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 8,
-                        ),
-                        child: ListTile(
+                  List<PlayerStats> playerStats =
+                      snapshot.data![0] as List<PlayerStats>;
+                  List<Game> games = snapshot.data![1] as List<Game>;
+
+                  List<GamePlayerStat> teamNames = playerStats
+                      .where((playerStat) =>
+                          games.any((game) => game.id == playerStat.gameId))
+                      .map((playerStat) {
+                    // Obtenir le jeu correspondant
+                    Game? game = games.firstWhere(
+                        (game) => game.id == playerStat.gameId,
+                        orElse: () =>
+                            Game()); // Remplacer les valeurs par défaut appropriées
+
+                    // Créer un objet TeamNames avec les propriétés souhaitées
+                    String? homeName = game.homeName;
+                    String? homeLogo = game.homeLogo;
+                    String? visitorName = game.visitorName;
+                    String? visitorLogo = game.visitorLogo;
+                    int? fouls = playerStat.fouls;
+                    int? threePointerMade = playerStat.threePointersMade;
+                    0; // Remplacer par la propriété réelle
+                    return GamePlayerStat(
+                      homeName: homeName,
+                      visitorName: visitorName,
+                      threePointersMade: threePointerMade,
+                    );
+                  }).toList();
+
+                  return Expanded(
+                    child: ListView.builder(
+                      itemCount: teamNames.length,
+                      itemBuilder: (context, index) {
+                        // Utiliser les propriétés de TeamNames dans l'affichage
+                        return ListTile(
                           title: Text(
-                            "${game.homeName} VS ${game.visitorName}",
-                          ),
+                              "${teamNames[index].homeName} VS ${teamNames[index].visitorName}"),
                           subtitle: Text(
-                            "${stat.assists} Assist, ${stat.blocks} blocage, ${stat.offensiveRebond == null ? '0 Rebond Offensif' : '${stat.offensiveRebond} rebond Offensif'}",
-                          ),
-                        ),
-                      );
-                    },
+                              "Trois points : ${teamNames[index].threePointersMade}"),
+                        );
+                      },
+                    ),
                   );
                 } else if (snapshot.hasError) {
+                  // Gérez les erreurs si nécessaire
                   return Text("${snapshot.error}");
                 } else {
+                  // Affichez un indicateur de chargement en attendant que les futures soient complets
                   return const CircularProgressIndicator();
                 }
               },
